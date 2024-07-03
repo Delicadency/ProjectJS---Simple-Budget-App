@@ -1,8 +1,8 @@
 :root {
---charcoal: #424b54ff;
---rosy-brown: #b38d97ff;
---tea-rose-red: #d5aca9ff;
---desert-sand: #ebcfb2ff;
---silver: #c5baafff;
---seasalt: #faf9f9ff;
+--light: #f8f7ffff;
+--dark: #424b54ff;
+--income-primary: #9381ffff;
+--income-secondary: #b8b8ffff;
+--outcome-primary: #ffeeddff;
+--outcome-secondary: #ffd8beff;
 }
