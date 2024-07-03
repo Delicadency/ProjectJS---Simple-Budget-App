@@ -1,8 +1,11 @@
 :root {
---light: #f8f7ffff;
---dark: #424b54ff;
---income-primary: #9381ffff;
---income-secondary: #b8b8ffff;
---outcome-primary: #ffeeddff;
---outcome-secondary: #ffd8beff;
+  --light: #f8f7ffff;
+  --dark: #424b54ff;
+  --income-primary: #9381ffff;
+  --income-secondary: #b8b8ffff;
+  --outcome-primary: #ffeeddff;
+  --outcome-secondary: #ffd8beff;
+  font-size: 2vh;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
