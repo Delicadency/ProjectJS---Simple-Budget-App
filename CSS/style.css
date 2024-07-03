@@ -9,3 +9,12 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
+.flex {
+    display: flex;
+}
+.a-i--center {
+    align-items: center;
+}
+.j-c--center {
+    justify-content: center;
+}
