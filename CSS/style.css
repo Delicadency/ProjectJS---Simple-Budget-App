@@ -9,6 +9,11 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-weight: 400;
+}
 .flex {
     display: flex;
 }
