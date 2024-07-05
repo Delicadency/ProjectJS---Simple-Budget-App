@@ -24,6 +24,9 @@ body {
 .j-c--center {
   justify-content: center;
 }
+.j-c--between {
+    justify-content: space-between;
+}
 .f--wrap {
   flex-wrap: wrap;
 }
@@ -40,4 +43,16 @@ body {
   text-align: center;
   padding: 1vh;
   margin: 1.1vh 10.625vh 3.125vh 10.625vh;
+}
+.main__paragraph-span--income{
+    background-image: linear-gradient(to bottom, #219ebc, #8ecae6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+}
+.main__paragraph-span--outcome{
+    background-image: linear-gradient(to bottom, #fb8500, #ffb703);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
 }
