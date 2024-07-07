@@ -28,46 +28,69 @@ body {
   justify-content: center;
 }
 .j-c--between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .f--wrap {
   flex-wrap: wrap;
+}
+.f--column{
+    flex-direction: column;
 }
 .main__header {
   font-size: 6.25rem;
   font-weight: 700;
   padding: 1vh;
-  margin: 3.9vh 4.9vh 1.1vh 4.9vh;
+  margin: 3.9vh 0 1.1vh 0;
 }
 .main__paragraph {
   font-size: 3.75rem;
   text-align: center;
   padding: 1vh;
-  margin: 1.1vh 10.625vh 3.125vh 10.625vh;
+  margin: 1.1vh 1vh 3.125vh 1vh;
+  white-space: pre-wrap;
 }
-.main__paragraph-span--income{
-    background-image: linear-gradient(to bottom, var(--income-primary), var(--income-secondary));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+.main__paragraph-span--income {
+  background-image: linear-gradient(
+    to bottom,
+    var(--income-primary),
+    var(--income-secondary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.main__paragraph-span--outcome{
-    background-image: linear-gradient(to bottom, var(--outcome-primary), var(--outcome-secondary));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+.main__paragraph-span--income::before {
+    content: "\A";
+    white-space: pre;
 }
-.income__container--paragraph{
-    width: 84%;
-    height:4.5vh;
-    color: var(--income-primary);
+.main__paragraph-span--outcome {
+  background-image: linear-gradient(
+    to bottom,
+    var(--outcome-primary),
+    var(--outcome-secondary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.f-s-20{
-    font-size: 3.125rem;
+.income__container--paragraph {
+  width: 84%;
+  height: 4.5vh;
+  color: var(--income-primary);
 }
-.f-s-14{
-font-size: 2.1875rem;
+.f-s-20 {
+  font-size: 3.125rem;
 }
-.f-s-12{
-    font-size: 1.185rem;
+.f-s-14 {
+  font-size: 2.1875rem;
+}
+.f-s-12 {
+  font-size: 1.185rem;
+}
+.income__container {
+  width: 92.43%;
+  height: 30vh;
+  background-color: var(--income-secondary-transparent);
+  border: 0.15625vh solid var(--income-primary);
+  border-radius: 0.78125vh;
 }
