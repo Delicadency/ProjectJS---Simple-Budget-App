@@ -3,8 +3,10 @@
   --dark: #023047;
   --income-primary: #219ebc;
   --income-secondary: #8ecae6;
+  --income-secondary-transparent: #8ecae620;
   --outcome-primary: #fb8500;
   --outcome-secondary: #ffb703;
+  --outcome-secondary-transparent: #ffb70320;
   font-size: 1vh;
   scroll-behavior: smooth;
   box-sizing: border-box;
