@@ -55,7 +55,7 @@ body {
         background-clip: text;
         color: transparent;
 }
-.income__paragraph-container{
+.income__container--paragraph{
     width: 84%;
     height:4.5vh;
     color: var(--income-primary);
