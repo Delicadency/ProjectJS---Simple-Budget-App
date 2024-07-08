@@ -16,42 +16,43 @@
     <script src="JS/script.js" defer></script>
   </head>
   <body>
-    <main class="flex f--wrap f--column a-i--center j-c--center">
-      <h1 class="main__header txt-a--center">Prosty Budżet</h1>
-      <p class="main__paragraph txt-a--center" id="main-paragraph1">
+    <header class="flex f--wrap f--column a-i--center j-c--center">
+      <h1 class="header__heading txt-a--center">Prosty Budżet</h1>
+      <p class="header__paragraph txt-a--center" id="header-paragraph1">
         Możesz jeszcze wydać
       </p>
-      <p class="main__paragraph txt-a--center" id="main-paragraph2">
-        <span class="main__paragraph-span--income">475,58</span> zł
+      <p class="header__paragraph txt-a--center" id="header-paragraph2">
+        <span class="header__paragraph-span--income">475,58</span> zł
       </p>
+    </header>
+    <main>
+        <section class="flex f--wrap a-i--center j-c--center" id="income">
+          <div class="flex j-c--between income__container--paragraph f-s-20">
+            <p>Przychody</p>
+            <p>6765,54 zł</p>
+          </div>
+          <div class="flex f--wrap j-c--center income__container">
+            <div class="flex j-c--between input__container f-s-12">
+              <input
+                type="text"
+                class="input input--text input--income txt-a--center"
+                placeholder="Nazwa przychodu"
+                id="income-name"
+              />
+              <input
+                type="number"
+                class="input input--element input--income txt-a--center"
+                placeholder="Kwota"
+                id="income-amount"
+              />
+              <button type="submit"
+              class="input__button input--element input__button--income txt-a--center"
+              id="income-button">Dodaj</button>
+            </div>
+            <div class="flex f--wrap f--column a-i--center j-c--center container__list f-s-14" id="income-list">
+            </div>
+          </div>
+        </section>
     </main>
-    <section class="flex f--wrap a-i--center j-c--center" id="income">
-      <div class="flex j-c--between income__container--paragraph f-s-20">
-        <p>Przychody</p>
-        <p>6765,54 zł</p>
-      </div>
-      <div class="flex f--wrap j-c--center income__container">
-        <div class="flex j-c--between input__container f-s-12">
-          <input
-            type="text"
-            class="input input--text input--income txt-a--center"
-            placeholder="Nazwa przychodu"
-            id="income-name"
-          />
-          <input
-            type="number"
-            class="input input--element input--income txt-a--center"
-            placeholder="Kwota"
-            id="income-amount"
-          />
-          <button type="submit" 
-          class="input__button input--element input__button--income txt-a--center"
-          id="income-button">Dodaj</button>
-        </div>
-        <div class="flex f--wrap f--column a-i--center j-c--center container__list f-s-14" id="income-list">
-
-        </div>
-      </div>
-    </section>
   </body>
 </html>
