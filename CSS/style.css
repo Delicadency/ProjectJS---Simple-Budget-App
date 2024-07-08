@@ -39,7 +39,6 @@ body {
 .txt-a--center {
   text-align: center;
 }
-
 .header__heading {
   font-size: 6.25rem;
   font-weight: 700;
@@ -87,11 +86,8 @@ body {
 .f-s-14 {
   font-size: 2.1875rem;
 }
-.f-s-12 {
-  font-size: 1.875rem;
-}
-.m--top{
-margin-top: 3vh;
+.m--top {
+  margin-top: 3vh;
 }
 .container {
   width: 92.43%;
@@ -145,6 +141,13 @@ margin-top: 3vh;
 }
 .input--element {
   width: 21%;
+  -moz-appearance: textfield;
+  appearance: none;
+}
+.input--element::-webkit-inner-spin-button,
+.input--element::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .input__button {
   height: 4.375vh;
@@ -162,13 +165,13 @@ margin-top: 3vh;
   color: var(--income-primary);
 }
 .input__button--outcome {
-    background-color: var(--outcome-primary);
-    color: var(--light);
-  }
-  .input__button--outcome:active {
-    background-color: var(--light);
-    color: var(--outcome-primary);
-  }
+  background-color: var(--outcome-primary);
+  color: var(--light);
+}
+.input__button--outcome:active {
+  background-color: var(--light);
+  color: var(--outcome-primary);
+}
 .list__container {
   width: 90%;
   height: 19.22vh;
@@ -204,7 +207,7 @@ margin-top: 3vh;
   aspect-ratio: 1/1;
   border: none;
   border-radius: 50%;
-  background-size: 60% 60%;
+  background-size: 50% 50%;
   background-repeat: no-repeat;
   background-position: center;
   margin: 0 0.7vh;

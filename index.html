@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="CSS/desktop.css" />
     <script src="JS/script.js" defer></script>
   </head>
-  <body>
+  <body class="flex f--wrap f--column">
     <header class="flex f--wrap f--column a-i--center j-c--center">
       <h1 class="header__heading txt-a--center">Prosty Budżet</h1>
       <p class="header__paragraph txt-a--center" id="header-paragraph1">
@@ -27,7 +27,7 @@
         <!-- zmienna! -->
       </p>
     </header>
-    <main>
+    <main class="flex main f--column f--row ">
       <section class="flex f--wrap a-i--center j-c--center" id="income">
         <div class="flex j-c--between a-i--center container__paragraph f-s-20">
           <p class="paragraph-gradient--income">Przychody</p>
@@ -37,7 +37,7 @@
           class="flex f--wrap j-c--center income__container container"
           id="income-inputs"
         >
-          <div class="flex j-c--between input__container f-s-12">
+          <div class="flex j-c--between input__container f-s-14">
             <input
               type="text"
               class="input input--text input--income txt-a--center"
@@ -91,7 +91,7 @@
           class="flex f--wrap j-c--center outcome__container container"
           id="outcome-inputs"
         >
-          <div class="flex j-c--between input__container f-s-12">
+          <div class="flex j-c--between input__container f-s-14">
             <input
               type="text"
               class="input input--text input--outcome txt-a--center"
