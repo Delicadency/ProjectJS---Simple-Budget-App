@@ -67,7 +67,6 @@ body {
   background-clip: text;
   color: transparent;
 }
-
 .paragraph-gradient--outcome {
   background-image: linear-gradient(
     to bottom,
@@ -78,10 +77,9 @@ body {
   background-clip: text;
   color: transparent;
 }
-.income__container--paragraph {
+.container__paragraph {
   width: 84%;
   height: 4.5vh;
-  color: var(--income-primary);
 }
 .f-s-20 {
   font-size: 3.125rem;
@@ -92,12 +90,21 @@ body {
 .f-s-12 {
   font-size: 1.875rem;
 }
-.income__container {
+.m--top{
+margin-top: 3vh;
+}
+.container {
   width: 92.43%;
   height: 30vh;
+  border-radius: 0.78125vh;
+}
+.income__container {
   background-color: var(--income-secondary-transparent);
   border: 0.15625vh solid var(--income-primary);
-  border-radius: 0.78125vh;
+}
+.outcome__container {
+  background-color: var(--outcome-secondary-transparent);
+  border: 0.15625vh solid var(--outcome-primary);
 }
 .input__container {
   width: 90%;
@@ -154,6 +161,14 @@ body {
   background-color: var(--light);
   color: var(--income-primary);
 }
+.input__button--outcome {
+    background-color: var(--outcome-primary);
+    color: var(--light);
+  }
+  .input__button--outcome:active {
+    background-color: var(--light);
+    color: var(--outcome-primary);
+  }
 .list__container {
   width: 90%;
   height: 19.22vh;
@@ -162,6 +177,9 @@ body {
 }
 .list__container--income {
   color: var(--income-primary);
+}
+.list__container--outcome {
+  color: var(--outcome-primary);
 }
 .list__element {
   width: 100%;
@@ -208,20 +226,20 @@ body {
   background-image: url("../svg/pen-outcome.svg");
   background-color: var(--light);
 }
-.delete{
-    background-image: url("../svg/x.svg");
+.delete {
+  background-image: url("../svg/x.svg");
 }
-.delete--income{
-    background-color: var(--income-primary);
+.delete--income {
+  background-color: var(--income-primary);
 }
-.delete--income:active{
-    background-image: url("../svg/x-income.svg");
-    background-color: var(--light);
+.delete--income:active {
+  background-image: url("../svg/x-income.svg");
+  background-color: var(--light);
 }
-.delete--outcome{
-    background-color: var(--outcome-primary);
+.delete--outcome {
+  background-color: var(--outcome-primary);
 }
-.delete--outcome:active{
-    background-image: url("../svg/x-outcome.svg");
-    background-color: var(--light);
+.delete--outcome:active {
+  background-image: url("../svg/x-outcome.svg");
+  background-color: var(--light);
 }

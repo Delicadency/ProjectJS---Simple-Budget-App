@@ -29,12 +29,12 @@
     </header>
     <main>
       <section class="flex f--wrap a-i--center j-c--center" id="income">
-        <div class="flex j-c--between income__container--paragraph f-s-20">
+        <div class="flex j-c--between a-i--center container__paragraph f-s-20">
           <p class="paragraph-gradient--income">Przychody</p>
           <p class="paragraph-gradient--income">6765,54 zł</p>
         </div>
         <section
-          class="flex f--wrap j-c--center income__container"
+          class="flex f--wrap j-c--center income__container container"
           id="income-inputs"
         >
           <div class="flex j-c--between input__container f-s-12">
@@ -67,6 +67,51 @@
               <div class="flex j-c--between a-i--center list__button_container">
                 <button type="submit" name="edit" class="list__button edit edit--income"></button>
                 <button type="submit" name="delete" class="list__button delete delete--income"></button>
+              </div>
+            </li>
+            <!-- zmienna -->
+          </ul>
+        </section>
+      </section>
+      <section class="flex f--wrap a-i--center j-c--center m--top" id="outcome">
+        <div class="flex j-c--between a-i--center container__paragraph f-s-20">
+          <p class="paragraph-gradient--outcome">Wydatki</p>
+          <p class="paragraph-gradient--outcome">6765,54 zł</p> <!-- zmienna -->
+        </div>
+        <section
+          class="flex f--wrap j-c--center outcome__container container"
+          id="outcome-inputs"
+        >
+          <div class="flex j-c--between input__container f-s-12">
+            <input
+              type="text"
+              class="input input--text input--outcome txt-a--center"
+              placeholder="Nazwa przychodu"
+              id="outcome-name"
+            />
+            <input
+              type="number"
+              class="input input--element input--outcome txt-a--center"
+              placeholder="Kwota"
+              id="outcome-amount"
+            />
+            <button
+              type="submit"
+              class="input__button input--element input__button--outcome txt-a--center"
+              id="outcome-button"
+            >
+              Dodaj
+            </button>
+          </div>
+          <ul
+            class="flex f--wrap list__container list__container--outcome f-s-14"
+            id="outcome-list"
+          >
+            <li class="flex a-i--center list__element" id="list-element-$">
+              <p class="list__paragraph">5600,00 zł - Pensja</p>
+              <div class="flex j-c--between a-i--center list__button_container">
+                <button type="submit" name="edit" class="list__button edit edit--outcome"></button>
+                <button type="submit" name="delete" class="list__button delete delete--outcome"></button>
               </div>
             </li>
             <!-- zmienna -->
