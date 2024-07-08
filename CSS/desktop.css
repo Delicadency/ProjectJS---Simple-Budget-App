@@ -1,4 +1,4 @@
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   :root {
     font-size: 24px;
   }
@@ -102,7 +102,6 @@
   }
   .list__button {
     width: 43px;
-
-    margin: 0 0.7vh;
+    margin: 0 10px;
   }
 }
