@@ -39,13 +39,13 @@ body {
 .txt-a--center {
   text-align: center;
 }
-.main__header {
+.header__heading {
   font-size: 6.25rem;
   font-weight: 700;
   padding: 1vh;
   margin: 3.9vh 0 1.1vh 0;
 }
-.main__paragraph {
+.header__paragraph {
   width: 100%;
   display: block;
   font-size: 3.75rem;
@@ -53,10 +53,10 @@ body {
   margin: 1.1vh 0 3.125vh 0;
   line-height: 2.5rem;
 }
-.main__paragraph:first-of-type {
+.header__paragraph:first-of-type {
   margin: 1.1vh 0 0;
 }
-.main__paragraph-span--income {
+.header__paragraph-span--income {
   background-image: linear-gradient(
     to bottom,
     var(--income-primary),
@@ -67,7 +67,7 @@ body {
   color: transparent;
 }
 
-.main__paragraph-span--outcome {
+.header__paragraph-span--outcome {
   background-image: linear-gradient(
     to bottom,
     var(--outcome-primary),
@@ -110,6 +110,7 @@ body {
   border-radius: 0.3125vh;
 }
 .input::placeholder {
+  font-family: "Sofia Sans";
   font-variant: small-caps;
   text-align: center;
 }
@@ -141,6 +142,7 @@ body {
   height: 4.375vh;
   border: none;
   border-radius: 0.3125vh;
+  font-family: "Sofia Sans";
   font-variant: small-caps;
 }
 .input__button--income {
@@ -151,8 +153,8 @@ body {
   background-color: var(--light);
   color: var(--income-primary);
 }
-.container__list{
-    width: 90%;
-    height: 30vh;
-    overflow: hidden;
+.container__list {
+  width: 90%;
+  height: 30vh;
+  overflow: hidden;
 }
