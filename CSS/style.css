@@ -39,6 +39,7 @@ body {
 .txt-a--center {
   text-align: center;
 }
+
 .header__heading {
   font-size: 6.25rem;
   font-weight: 700;
@@ -56,7 +57,7 @@ body {
 .header__paragraph:first-of-type {
   margin: 1.1vh 0 0;
 }
-.header__paragraph-span--income {
+.paragraph-gradient--income {
   background-image: linear-gradient(
     to bottom,
     var(--income-primary),
@@ -67,7 +68,7 @@ body {
   color: transparent;
 }
 
-.header__paragraph-span--outcome {
+.paragraph-gradient--outcome {
   background-image: linear-gradient(
     to bottom,
     var(--outcome-primary),
@@ -101,7 +102,7 @@ body {
 .input__container {
   width: 90%;
   height: 4.375vh;
-  margin: 1.875vh 0 2.5vh 0;
+  margin: 1.8vh 0;
 }
 .input {
   height: 4.375vh;
@@ -136,7 +137,7 @@ body {
   width: 50%;
 }
 .input--element {
-  width: 19%;
+  width: 21%;
 }
 .input__button {
   height: 4.375vh;
@@ -153,8 +154,74 @@ body {
   background-color: var(--light);
   color: var(--income-primary);
 }
-.container__list {
+.list__container {
   width: 90%;
-  height: 30vh;
-  overflow: hidden;
+  height: 19.22vh;
+  overflow: scroll;
+  align-content: start;
+}
+.list__container--income {
+  color: var(--income-primary);
+}
+.list__element {
+  width: 100%;
+  height: 4.375vh;
+  background-color: var(--light);
+  border-radius: 0.3125vh;
+  align-content: center;
+  margin: 0.78125vh 0 0;
+}
+.list__element:first-of-type {
+  margin: 0;
+}
+.list__paragraph {
+  width: 70%;
+  margin: 0 1.875vh;
+}
+.list__button_container {
+  width: 21%;
+}
+.list__button {
+  width: 3.125vh;
+  aspect-ratio: 1/1;
+  border: none;
+  border-radius: 50%;
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 0.7vh;
+}
+.edit {
+  background-image: url("../svg/pen.svg");
+}
+.edit--income {
+  background-color: var(--income-secondary);
+}
+.edit--income:active {
+  background-image: url("../svg/pen-income.svg");
+  background-color: var(--light);
+}
+.edit--outcome {
+  background-color: var(--outcome-secondary);
+}
+.edit--outcome:active {
+  background-image: url("../svg/pen-outcome.svg");
+  background-color: var(--light);
+}
+.delete{
+    background-image: url("../svg/x.svg");
+}
+.delete--income{
+    background-color: var(--income-primary);
+}
+.delete--income:active{
+    background-image: url("../svg/x-income.svg");
+    background-color: var(--light);
+}
+.delete--outcome{
+    background-color: var(--outcome-primary);
+}
+.delete--outcome:active{
+    background-image: url("../svg/x-outcome.svg");
+    background-color: var(--light);
 }
