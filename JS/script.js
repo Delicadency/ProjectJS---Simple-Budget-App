@@ -17,7 +17,20 @@ function handleEdit(event) {
   const name = listParagraph.getAttribute("data-name");
   const amount = listParagraph.getAttribute("data-amount");
 
+  const amountInput = document.createElement("input");
+  amountInput.type = "number";
+  amountInput.autocomplete = "off";
+  amountInput.maxLength = "10";
+  amountInput.pattern = "^\d{0,7}(\.\d{0,2})?$"
+  amountInput.inputMode = "numeric";
+  amountInput.placeholder = "Kwota";
+  amountInput.className = "input input--element txt-a--center f-s-14";
+  amountInput.value = amount;
+  amountInput.id = `edit-input-${matchID}`;
+
   
+
+
 }
 
 let counter = 0;
