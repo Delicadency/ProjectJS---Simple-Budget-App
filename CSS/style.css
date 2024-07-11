@@ -249,3 +249,14 @@ body {
   background-image: url("../svg/x-outcome.svg");
   background-color: var(--light);
 }
+.save{
+  background-image: url("../svg/save.svg");
+}
+.save--income:active {
+  background-image: url("../svg/save-income.svg");
+  background-color: var(--light);
+}
+.save--outcome:active {
+  background-image: url("../svg/save-outcome.svg");
+  background-color: var(--light);
+}
