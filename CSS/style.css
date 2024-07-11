@@ -142,11 +142,6 @@ body {
 .input--text {
   width: 50%;
 }
-.input--text-edit {
-  width: 50%;
-  height: 4vh;
-  color: inherit;
-}
 .input--element {
   width: 21%;
   -moz-appearance: textfield;
