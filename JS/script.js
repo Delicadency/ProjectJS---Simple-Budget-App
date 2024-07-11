@@ -11,6 +11,7 @@ function handleSave(event) {
 
   const name = nameInput.value;
   const amount = amountInput.value;
+  const type = event.target.getAttribute("data-type");
 
   const listParagraph = document.createElement("p");
   listParagraph.className = "list__paragraph";
@@ -19,7 +20,13 @@ function handleSave(event) {
   listParagraph.setAttribute("data-name", name);
   listParagraph.setAttribute("data-amount", amount);
 
-  
+  const editButton = document.createElement("button");
+  editButton.setAttribute("data-type", `${type}`);
+  editButton.type = "submit";
+  editButton.name = "edit";
+  editButton.className = `list__button edit edit--${type}`;
+  editButton.id = `button-edit-${matchID}`;
+  editButton.addEventListener("click", handleEdit);
 }
 
 function handleDelete(event) {
