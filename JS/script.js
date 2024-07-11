@@ -1,4 +1,12 @@
 "use strict";
+function handleDelete(event) {
+  const deleteButtonID = event.target.id;
+  const splitedID = deleteButtonID.split("-");
+  const matchID = splitedID[splitedID.length - 1];
+  const liToDelete = document.getElementById(`list-element-${matchID}`);
+  liToDelete.remove();
+}
+
 let counter = 0;
 const types = ["income", "outcome"];
 types.forEach((type) => {
@@ -15,7 +23,6 @@ types.forEach((type) => {
       }
     });
 
-
   document.getElementById(`${type}-name`).addEventListener("input", (event) => {
     event.preventDefault();
     const input = event.target;
@@ -25,7 +32,6 @@ types.forEach((type) => {
       (value = value.slice(0, 30)), (input.value = value);
     }
   });
-
 
   document
     .getElementById(`input-button-${type}`)
@@ -48,7 +54,10 @@ types.forEach((type) => {
       const listParagraph = document.createElement("p");
       listParagraph.className = "list__paragraph";
       listParagraph.id = `list-parahraph-${counter}`;
-      listParagraph.textContent = `${inputAmount.replace(".", ",")} zł - ${inputName}`;
+      listParagraph.textContent = `${inputAmount.replace(
+        ".",
+        ","
+      )} zł - ${inputName}`;
       listParagraph.setAttribute("data-name", inputName);
       listParagraph.setAttribute("data-amount", inputAmount);
 
@@ -62,12 +71,14 @@ types.forEach((type) => {
       editButton.name = "edit";
       editButton.className = `list__button edit edit--${type}`;
       editButton.id = `button-edit-${counter}`;
+      /*  editButton.addEventListener("click", handleEdit); */
 
       const deleteButton = document.createElement("button");
       deleteButton.type = "submit";
       deleteButton.name = "delete";
       deleteButton.className = `list__button delete delete--${type}`;
-      deleteButton.id = `button-delete-${type}`;
+      deleteButton.id = `button-delete-${counter}`;
+      deleteButton.addEventListener("click", handleDelete);
 
       const ul = document.getElementById(`${type}-list`);
       ul.appendChild(li);
@@ -78,6 +89,4 @@ types.forEach((type) => {
       document.getElementById(`${type}-name`).value = "";
       document.getElementById(`${type}-amount`).value = "";
     });
-
-    
 });
