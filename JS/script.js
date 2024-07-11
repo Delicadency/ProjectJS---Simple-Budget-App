@@ -49,6 +49,8 @@ types.forEach((type) => {
       listParagraph.className = "list__paragraph";
       listParagraph.id = `list-parahraph-${counter}`;
       listParagraph.textContent = `${inputAmount.replace(".", ",")} zł - ${inputName}`;
+      listParagraph.setAttribute("data-name", inputName);
+      listParagraph.setAttribute("data-amount", inputAmount);
 
       const listDiv = document.createElement("div");
       listDiv.className =
@@ -66,7 +68,7 @@ types.forEach((type) => {
       deleteButton.name = "delete";
       deleteButton.className = `list__button delete delete--${type}`;
       deleteButton.id = `button-delete-${type}`;
-      
+
       const ul = document.getElementById(`${type}-list`);
       ul.appendChild(li);
       li.appendChild(listParagraph);
@@ -76,4 +78,6 @@ types.forEach((type) => {
       document.getElementById(`${type}-name`).value = "";
       document.getElementById(`${type}-amount`).value = "";
     });
+
+    
 });
