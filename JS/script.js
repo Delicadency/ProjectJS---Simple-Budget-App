@@ -6,8 +6,11 @@ function handleSave(event) {
   const splitID = saveButtonID.split("-");
   const matchID = splitID[splitID.length - 1];
   const liToSave = document.getElementById(`list-element-${matchID}`);
-  const amountInput = liToSave.querySelector(`edit-amountinput-${matchID}`);
-  const nameInput = liToSave.querySelector(`edit-nameinput-${matchID}`);
+  const amountInput = liToSave.querySelector(`#edit-amountinput-${matchID}`);
+  const nameInput = liToSave.querySelector(`#edit-nameinput-${matchID}`);
+  const paragraphToChange = liToSave.querySelector(
+    `#list-parahraph-${matchID}`
+  );
 
   const name = nameInput.value;
   const amount = amountInput.value;
@@ -27,6 +30,9 @@ function handleSave(event) {
   editButton.className = `list__button edit edit--${type}`;
   editButton.id = `button-edit-${matchID}`;
   editButton.addEventListener("click", handleEdit);
+
+  paragraphToChange.replaceWith(listParagraph);
+  event.target.replaceWith(editButton);
 }
 
 function handleDelete(event) {
