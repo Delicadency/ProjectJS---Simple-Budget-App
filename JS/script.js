@@ -1,63 +1,68 @@
 "use strict";
 let counter = 0;
+
+function handleSave(event) {
+  const saveButtonID = event.target.id;
+  const splitID = saveButtonID.split("-");
+  const matchID = splitID[splitID.length - 1];
+}
+
+function handleDelete(event) {
+  const deleteButtonID = event.target.id;
+  const splitID = deleteButtonID.split("-");
+  const matchID = splitID[splitID.length - 1];
+  const liToDelete = document.getElementById(`list-element-${matchID}`);
+  liToDelete.remove();
+}
+
+function handleEdit(event) {
+  const editButtonID = event.target.id;
+  const splitID = editButtonID.split("-");
+  const matchID = splitID[splitID.length - 1];
+  const liToEdit = document.getElementById(`list-element-${matchID}`);
+  const listParagraph = liToEdit.querySelector(".list__paragraph");
+
+  const name = listParagraph.getAttribute("data-name");
+  const amount = listParagraph.getAttribute("data-amount");
+  const type = event.target.getAttribute("data-type");
+
+  const amountInput = document.createElement("input");
+  amountInput.type = "number";
+  amountInput.autocomplete = "off";
+  amountInput.maxLength = "10";
+  amountInput.pattern = "^d{0,7}(.d{0,2})?$";
+  amountInput.inputMode = "numeric";
+  amountInput.placeholder = "Kwota";
+  amountInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
+  amountInput.value = amount;
+  amountInput.id = `edit-amountinput-${matchID}`;
+
+  const nameInput = document.createElement("input");
+  nameInput.type = "text";
+  nameInput.autocomplete = "off";
+  nameInput.maxLength = "30";
+  nameInput.placeholder = "Nazwa";
+  nameInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
+  nameInput.value = name;
+  nameInput.id = `edit-nameinput-${matchID}`;
+
+  const saveButton = document.createElement("button");
+  saveButton.type = "submit";
+  saveButton.name = "save";
+  saveButton.className = `list__button save save--${type}`;
+  saveButton.id = `button-save-${matchID}`;
+  saveButton.setAttribute("data-type", type);
+  saveButton.addEventListener("click", handleSave);
+
+  listParagraph.innerHTML = "";
+  listParagraph.appendChild(amountInput);
+  listParagraph.append(" zł - ");
+  listParagraph.appendChild(nameInput);
+  event.target.replaceWith(saveButton);
+}
+
 const types = ["income", "outcome"];
 types.forEach((type) => {
-  function handleSave(event) {}
-
-  function handleDelete(event) {
-    const deleteButtonID = event.target.id;
-    const splitID = deleteButtonID.split("-");
-    const matchID = splitID[splitID.length - 1];
-    const liToDelete = document.getElementById(`list-element-${matchID}`);
-    liToDelete.remove();
-  }
-
-  function handleEdit(event) {
-    const editButtonID = event.target.id;
-    const splitID = editButtonID.split("-");
-    const matchID = splitID[splitID.length - 1];
-    const liToEdit = document.getElementById(`list-element-${matchID}`);
-    const listParagraph = liToEdit.querySelector(".list__paragraph");
-
-    const name = listParagraph.getAttribute("data-name");
-    const amount = listParagraph.getAttribute("data-amount");
-    const type = event.target.getAttribute("data-type");
-
-    const amountInput = document.createElement("input");
-    amountInput.type = "number";
-    amountInput.autocomplete = "off";
-    amountInput.maxLength = "10";
-    amountInput.pattern = "^d{0,7}(.d{0,2})?$";
-    amountInput.inputMode = "numeric";
-    amountInput.placeholder = "Kwota";
-    amountInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
-    amountInput.value = amount;
-    amountInput.id = `edit-amountinput-${matchID}`;
-
-    const nameInput = document.createElement("input");
-    nameInput.type = "text";
-    nameInput.autocomplete = "off";
-    nameInput.maxLength = "30";
-    nameInput.placeholder = "Nazwa";
-    nameInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
-    nameInput.value = name;
-    nameInput.id = `edit-nameinput-${matchID}`;
-
-    const saveButton = document.createElement("button");
-    saveButton.type = "submit";
-    saveButton.name = "save";
-    saveButton.className = `list__button save save--${type}`;
-    saveButton.id = `button-save-${matchID}`;
-    saveButton.setAttribute("data-type", type)
-    saveButton.addEventListener("click", handleSave);
-
-    listParagraph.innerHTML = "";
-    listParagraph.appendChild(amountInput);
-    listParagraph.append(" zł - ");
-    listParagraph.appendChild(nameInput);
-    event.target.replaceWith(saveButton);
-  }
-
   document
     .getElementById(`${type}-amount`)
     .addEventListener("input", (event) => {
@@ -121,7 +126,6 @@ types.forEach((type) => {
       editButton.className = `list__button edit edit--${type}`;
       editButton.id = `button-edit-${counter}`;
       editButton.addEventListener("click", handleEdit);
-      
 
       const deleteButton = document.createElement("button");
       deleteButton.type = "submit";
