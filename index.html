@@ -44,6 +44,7 @@
               placeholder="Nazwa przychodu"
               id="income-name"
               autocomplete="off"
+              maxlength="30"
             />
             <input
               type="number"
@@ -51,6 +52,9 @@
               placeholder="Kwota"
               id="income-amount"
               autocomplete="off"
+              maxlength="10"
+              pattern="^\d{0,7}(\.\d{0,2})?$"
+              inputmode="numeric"
             />
             <button
               type="submit"
@@ -107,6 +111,7 @@
               placeholder="Nazwa przychodu"
               id="outcome-name"
               autocomplete="off"
+              maxlength="30"
             />
             <input
               type="number"
@@ -114,6 +119,9 @@
               placeholder="Kwota"
               id="outcome-amount"
               autocomplete="off"
+              maxlength="10"
+              pattern="^\d{0,7}(\.\d{0,2})?$"
+              inputmode="numeric"
             />
             <button
               type="submit"
