@@ -5,6 +5,21 @@ function handleSave(event) {
   const saveButtonID = event.target.id;
   const splitID = saveButtonID.split("-");
   const matchID = splitID[splitID.length - 1];
+  const liToSave = document.getElementById(`list-element-${matchID}`);
+  const amountInput = liToSave.querySelector(`edit-amountinput-${matchID}`);
+  const nameInput = liToSave.querySelector(`edit-nameinput-${matchID}`);
+
+  const name = nameInput.value;
+  const amount = amountInput.value;
+
+  const listParagraph = document.createElement("p");
+  listParagraph.className = "list__paragraph";
+  listParagraph.id = `list-parahraph-${matchID}`;
+  listParagraph.textContent = `${amount.replace(".", ",")} zł - ${name}`;
+  listParagraph.setAttribute("data-name", name);
+  listParagraph.setAttribute("data-amount", amount);
+
+  
 }
 
 function handleDelete(event) {
