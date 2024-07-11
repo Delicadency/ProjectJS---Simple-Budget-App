@@ -21,6 +21,7 @@ types.forEach((type) => {
 
     const name = listParagraph.getAttribute("data-name");
     const amount = listParagraph.getAttribute("data-amount");
+    const type = event.target.getAttribute("data-type");
 
     const amountInput = document.createElement("input");
     amountInput.type = "number";
@@ -29,7 +30,7 @@ types.forEach((type) => {
     amountInput.pattern = "^d{0,7}(.d{0,2})?$";
     amountInput.inputMode = "numeric";
     amountInput.placeholder = "Kwota";
-    amountInput.className = "input input--element-edit txt-a--center f-s-14";
+    amountInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
     amountInput.value = amount;
     amountInput.id = `edit-amountinput-${matchID}`;
 
@@ -38,11 +39,9 @@ types.forEach((type) => {
     nameInput.autocomplete = "off";
     nameInput.maxLength = "30";
     nameInput.placeholder = "Nazwa";
-    nameInput.className = "input input--text-edit txt-a--center f-s-14";
+    nameInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
     nameInput.value = name;
     nameInput.id = `edit-nameinput-${matchID}`;
-
-    const type = event.target.getAttribute("data-type");
 
     const saveButton = document.createElement("button");
     saveButton.type = "submit";

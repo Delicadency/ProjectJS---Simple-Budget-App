@@ -135,7 +135,10 @@ body {
 .input--outcome:focus {
   outline: 0.15625vh solid var(--outcome-primary);
 }
-
+.input--edit{
+  width:40% !important;
+  height:4vh !important;
+}
 .input--text {
   width: 50%;
 }
@@ -144,26 +147,16 @@ body {
   height: 4vh;
   color: inherit;
 }
-.input--text-edit::placeholder {
-  color: inherit;
-}
 .input--element {
   width: 21%;
   -moz-appearance: textfield;
   appearance: none;
 }
-.input--element-edit {
-  width: 21%;
-  height: 4vh;
-  color: inherit;
-}
-.input--element-edit::placeholder {
-  color: inherit;
-}
 .input--element::-webkit-inner-spin-button,
 .input--element::-webkit-outer-spin-button,
-.input--element-edit::-webkit-inner-spin-button,
-.input--element-edit::-webkit-outer-spin-button {
+.input--edit::-webkit-outer-spin-button,
+.input--edit::-webkit-inner-spin-button
+{
   -webkit-appearance: none;
   margin: 0;
 }
