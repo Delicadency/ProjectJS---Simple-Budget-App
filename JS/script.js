@@ -1,10 +1,23 @@
 "use strict";
 function handleDelete(event) {
   const deleteButtonID = event.target.id;
-  const splitedID = deleteButtonID.split("-");
-  const matchID = splitedID[splitedID.length - 1];
+  const splitID = deleteButtonID.split("-");
+  const matchID = splitID[splitID.length - 1];
   const liToDelete = document.getElementById(`list-element-${matchID}`);
   liToDelete.remove();
+}
+
+function handleEdit(event) {
+  const editButtonID = event.target.id;
+  const splitID = editButtonID.split("-");
+  const matchID = splitID[splitID.lenght - 1];
+  const liToEdit = document.getElementById(`list-element-${matchID}`);
+  const listParagraph = liToEdit.querySelector(".list__paragraph");
+
+  const name = listParagraph.getAttribute("data-name");
+  const amount = listParagraph.getAttribute("data-amount");
+
+  
 }
 
 let counter = 0;
