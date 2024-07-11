@@ -121,10 +121,12 @@ body {
   font-variant: small-caps;
   text-align: center;
 }
-.input--income {
+.input--income,
+.input--income::placeholder {
   color: var(--income-primary);
 }
-.input--outcome {
+.input--outcome,
+.input--outcome::placeholder {
   color: var(--outcome-primary);
 }
 .input--income:focus {
@@ -133,22 +135,35 @@ body {
 .input--outcome:focus {
   outline: 0.15625vh solid var(--outcome-primary);
 }
-.input--income::placeholder {
-  color: var(--income-primary);
-}
-.input--outcome::placeholder {
-  color: var(--outcome-primary);
-}
+
 .input--text {
   width: 50%;
+}
+.input--text-edit {
+  width: 50%;
+  height: 4vh;
+  color: inherit;
+}
+.input--text-edit::placeholder {
+  color: inherit;
 }
 .input--element {
   width: 21%;
   -moz-appearance: textfield;
   appearance: none;
 }
+.input--element-edit {
+  width: 21%;
+  height: 4vh;
+  color: inherit;
+}
+.input--element-edit::placeholder {
+  color: inherit;
+}
 .input--element::-webkit-inner-spin-button,
-.input--element::-webkit-outer-spin-button {
+.input--element::-webkit-outer-spin-button,
+.input--element-edit::-webkit-inner-spin-button,
+.input--element-edit::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -249,12 +264,18 @@ body {
   background-image: url("../svg/x-outcome.svg");
   background-color: var(--light);
 }
-.save{
+.save {
   background-image: url("../svg/save.svg");
+}
+.save--income {
+  background-color: var(--income-secondary);
 }
 .save--income:active {
   background-image: url("../svg/save-income.svg");
   background-color: var(--light);
+}
+.save--outcome {
+  background-color: var(--outcome-secondary);
 }
 .save--outcome:active {
   background-image: url("../svg/save-outcome.svg");
