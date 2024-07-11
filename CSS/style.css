@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "Sofia Sans";
+  font-family: "Sofia Sans", sans-serif;
   font-weight: 400;
   background-color: var(--light);
   color: var(--dark);
@@ -113,9 +113,11 @@ body {
   background-color: var(--light);
   border: none;
   border-radius: 0.3125vh;
+  font-family: "Sofia Sans", sans-serif !important;
+  font-variant: small-caps;
 }
 .input::placeholder {
-  font-family: "Sofia Sans";
+  font-family: "Sofia Sans", sans-serif;
   font-variant: small-caps;
   text-align: center;
 }
@@ -154,7 +156,7 @@ body {
   height: 4.375vh;
   border: none;
   border-radius: 0.3125vh;
-  font-family: "Sofia Sans";
+  font-family: "Sofia Sans", sans-serif;
   font-variant: small-caps;
 }
 .input__button--income {
