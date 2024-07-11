@@ -27,7 +27,7 @@
         <!-- zmienna! -->
       </p>
     </header>
-    <main class="flex main f--column f--row ">
+    <main class="flex main f--column f--row">
       <section class="flex f--wrap a-i--center j-c--center" id="income">
         <div class="flex j-c--between a-i--center container__paragraph f-s-20">
           <p class="paragraph-gradient--income">Przychody</p>
@@ -43,12 +43,14 @@
               class="input input--text input--income txt-a--center"
               placeholder="Nazwa przychodu"
               id="income-name"
+              autocomplete="off"
             />
             <input
               type="number"
               class="input input--element input--income txt-a--center"
               placeholder="Kwota"
               id="income-amount"
+              autocomplete="off"
             />
             <button
               type="submit"
@@ -63,8 +65,13 @@
             id="income-list"
           >
             <li class="flex a-i--center list__element" id="list-element-$">
-              <p class="list__paragraph" id="list-paragraph-$">5600,00 zł - Pensja</p>
-              <div class="flex j-c--between a-i--center list__button_container" id="list-div-$">
+              <p class="list__paragraph" id="list-paragraph-$">
+                5600,00 zł - Pensja
+              </p>
+              <div
+                class="flex j-c--between a-i--center list__button_container"
+                id="list-div-$"
+              >
                 <button
                   type="submit"
                   name="edit"
@@ -99,12 +106,14 @@
               class="input input--text input--outcome txt-a--center"
               placeholder="Nazwa przychodu"
               id="outcome-name"
+              autocomplete="off"
             />
             <input
               type="number"
               class="input input--element input--outcome txt-a--center"
               placeholder="Kwota"
               id="outcome-amount"
+              autocomplete="off"
             />
             <button
               type="submit"
