@@ -1,5 +1,9 @@
 "use strict";
 let counter = 0;
+let totals = {
+  income: 0,
+  outcome: 0,
+};
 
 function handleSave(event) {
   const saveButtonID = event.target.id;
@@ -11,28 +15,45 @@ function handleSave(event) {
   const paragraphToChange = liToSave.querySelector(
     `#list-parahraph-${matchID}`
   );
+  const previousAmount = parseFloat(
+    paragraphToChange.getAttribute("data-amount")
+  );
 
-  const name = nameInput.value;
-  const amount = amountInput.value;
-  const type = event.target.getAttribute("data-type");
+  if (amountInput && nameInput) {
+    const name = nameInput.value;
+    let amount = amountInput.value;
+    const type = event.target.getAttribute("data-type");
 
-  const listParagraph = document.createElement("p");
-  listParagraph.className = "list__paragraph";
-  listParagraph.id = `list-parahraph-${matchID}`;
-  listParagraph.textContent = `${amount.replace(".", ",")} zł - ${name}`;
-  listParagraph.setAttribute("data-name", name);
-  listParagraph.setAttribute("data-amount", amount);
+    const listParagraph = document.createElement("p");
+    listParagraph.className = "list__paragraph";
+    listParagraph.id = `list-parahraph-${matchID}`;
+    listParagraph.textContent = `${amount.replace(".", ",")} zł - ${name}`;
+    listParagraph.setAttribute("data-name", name);
+    listParagraph.setAttribute("data-amount", amount);
+    listParagraph.setAttribute("data-type", type);
 
-  const editButton = document.createElement("button");
-  editButton.setAttribute("data-type", `${type}`);
-  editButton.type = "submit";
-  editButton.name = "edit";
-  editButton.className = `list__button edit edit--${type}`;
-  editButton.id = `button-edit-${matchID}`;
-  editButton.addEventListener("click", handleEdit);
+    amount = parseFloat(amount);
 
-  paragraphToChange.replaceWith(listParagraph);
-  event.target.replaceWith(editButton);
+    const editButton = document.createElement("button");
+    editButton.setAttribute("data-type", `${type}`);
+    editButton.type = "submit";
+    editButton.name = "edit";
+    editButton.className = `list__button edit edit--${type}`;
+    editButton.id = `button-edit-${matchID}`;
+    editButton.addEventListener("click", handleEdit);
+
+    totals[type] += totals[type] - previousAmount + amount;
+    document.getElementById(`total-${type}`).textContent =
+      totals[type].toFixed(2);
+
+    paragraphToChange.replaceWith(listParagraph);
+    event.target.replaceWith(editButton);
+  } else {
+    console.error(
+      "Tu wstaw element z komunikatem o konieczności uzupełnienia obu pól."
+    );
+    return;
+  }
 }
 
 function handleDelete(event) {
@@ -141,6 +162,9 @@ types.forEach((type) => {
       )} zł - ${inputName}`;
       listParagraph.setAttribute("data-name", inputName);
       listParagraph.setAttribute("data-amount", inputAmount);
+      listParagraph.setAttribute("data-type", type);
+
+      inputAmount = parseFloat(inputAmount);
 
       const listDiv = document.createElement("div");
       listDiv.className =
@@ -168,6 +192,11 @@ types.forEach((type) => {
       li.appendChild(listDiv);
       listDiv.appendChild(editButton);
       listDiv.appendChild(deleteButton);
+
+      totals[type] += inputAmount;
+      document.getElementById(`total-${type}`).textContent =
+        totals[type].toFixed(2);
+
       document.getElementById(`${type}-name`).value = "";
       document.getElementById(`${type}-amount`).value = "";
     });
