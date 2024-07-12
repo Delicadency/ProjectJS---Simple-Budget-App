@@ -47,12 +47,13 @@ body {
   margin: 3.9vh 0 1.1vh 0;
 }
 .header__paragraph {
-  width: 100%;
+  width: 80%;
+  height: auto;
   display: block;
   font-size: 3.75rem;
   padding: 1vh;
   margin: 1.1vh 0 3.125vh 0;
-  line-height: 2.5rem;
+  line-height: 4rem;
 }
 .header__paragraph:first-of-type {
   margin: 1.1vh 0 0;

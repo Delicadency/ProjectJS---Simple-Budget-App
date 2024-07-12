@@ -43,8 +43,12 @@ function handleSave(event) {
     editButton.addEventListener("click", handleEdit);
 
     totals[type] = totals[type] - previousAmount + amount;
-    document.getElementById(`total-${type}`).textContent =
-      totals[type].toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById(`total-${type}`).textContent = totals[
+      type
+    ].toLocaleString("pl-PL", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
 
     paragraphToChange.replaceWith(listParagraph);
     event.target.replaceWith(editButton);
@@ -67,8 +71,12 @@ function handleDelete(event) {
   const amount = parseFloat(listParagraph.getAttribute("data-amount"));
 
   totals[type] -= amount;
-  document.getElementById(`total-${type}`).textContent =
-    totals[type].toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById(`total-${type}`).textContent = totals[
+    type
+  ].toLocaleString("pl-PL", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
   liToDelete.remove();
 }
 
@@ -120,6 +128,26 @@ function handleEdit(event) {
 
 const types = ["income", "outcome"];
 types.forEach((type) => {
+  document
+    .getElementById(`total-${type}`)
+    .addEventListener("change", (event) => {
+      event.preventDefault();
+      const balance = totals.income - totals.outcome;
+      const header = document.getElementById("header");
+      const headerParagraph = document.getElementById("header-paragraph");
+      const newHeaderParagraph = document.createElement("p");
+      newHeaderParagraph.className = "header__paragraph txt-a--center";
+      newHeaderParagraph.id = "header-paragraph";
+
+      const spanOnPlus = document.createElement("span");
+      spanOnPlus.className = "paragraph-gradient--income";
+      spanOnPlus.id = "span-on-plus";
+
+      const spanInMinus = document.createElement("span");
+      spanInMinus.className = "paragraph-gradient--outcome";
+      spanInMinus.id = "span-in-minus";
+    });
+
   document
     .getElementById(`${type}-amount`)
     .addEventListener("input", (event) => {
@@ -203,8 +231,12 @@ types.forEach((type) => {
       listDiv.appendChild(deleteButton);
 
       totals[type] += inputAmount;
-      document.getElementById(`total-${type}`).textContent =
-        totals[type].toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById(`total-${type}`).textContent = totals[
+        type
+      ].toLocaleString("pl-PL", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
 
       document.getElementById(`${type}-name`).value = "";
       document.getElementById(`${type}-amount`).value = "";
