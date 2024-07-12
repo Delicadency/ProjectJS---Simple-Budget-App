@@ -48,7 +48,7 @@ body {
 }
 .header__paragraph {
   width: 80%;
-  height: auto;
+  height: 6vh;
   display: block;
   font-size: 3.75rem;
   padding: 1vh;

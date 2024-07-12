@@ -5,9 +5,11 @@ let totals = {
   outcome: 0,
 };
 let balance = totals.income - totals.outcome;
+console.log(balance);
 
 function updateBalance() {
-  const header = document.getElementById("header");
+  balance = totals.income - totals.outcome;
+
   const headerParagraph = document.getElementById("header-paragraph");
   const newHeaderParagraph = document.createElement("p");
   const span = document.createElement("span");
@@ -25,7 +27,7 @@ function updateBalance() {
     span.className = "paragraph-gradient--income";
     const beforeSpan = document.createTextNode("Możesz jeszcze wydać ");
     const afterSpan = document.createTextNode(" zł");
-    header.replaceWith(newHeaderParagraph);
+    headerParagraph.replaceWith(newHeaderParagraph);
     newHeaderParagraph.appendChild(beforeSpan);
     newHeaderParagraph.appendChild(span);
     newHeaderParagraph.appendChild(afterSpan);
@@ -33,7 +35,7 @@ function updateBalance() {
     span.className = "paragraph-gradient--outcome";
     const beforeSpan = document.createTextNode("Jesteś na minusie ");
     const afterSpan = document.createTextNode(" zł");
-    header.replaceWith(newHeaderParagraph);
+    headerParagraph.replaceWith(newHeaderParagraph);
     newHeaderParagraph.appendChild(beforeSpan);
     newHeaderParagraph.appendChild(span);
     newHeaderParagraph.appendChild(afterSpan);
@@ -88,6 +90,8 @@ function handleSave(event) {
       maximumFractionDigits: 2,
     });
 
+    updateBalance();
+
     paragraphToChange.replaceWith(listParagraph);
     event.target.replaceWith(editButton);
   } else {
@@ -115,6 +119,9 @@ function handleDelete(event) {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
+
+  updateBalance();
+
   liToDelete.remove();
 }
 
@@ -166,6 +173,10 @@ function handleEdit(event) {
 
 const types = ["income", "outcome"];
 types.forEach((type) => {
+  document
+    .getElementById(`total-${type}`)
+    .addEventListener("change", updateBalance);
+
   document
     .getElementById(`${type}-amount`)
     .addEventListener("input", (event) => {
@@ -255,6 +266,8 @@ types.forEach((type) => {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       });
+
+      updateBalance();
 
       document.getElementById(`${type}-name`).value = "";
       document.getElementById(`${type}-amount`).value = "";
