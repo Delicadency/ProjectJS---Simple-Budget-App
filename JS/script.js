@@ -42,9 +42,9 @@ function handleSave(event) {
     editButton.id = `button-edit-${matchID}`;
     editButton.addEventListener("click", handleEdit);
 
-    totals[type] += totals[type] - previousAmount + amount;
+    totals[type] = totals[type] - previousAmount + amount;
     document.getElementById(`total-${type}`).textContent =
-      totals[type].toFixed(2);
+      totals[type].toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
     paragraphToChange.replaceWith(listParagraph);
     event.target.replaceWith(editButton);
@@ -61,6 +61,14 @@ function handleDelete(event) {
   const splitID = deleteButtonID.split("-");
   const matchID = splitID[splitID.length - 1];
   const liToDelete = document.getElementById(`list-element-${matchID}`);
+  const listParagraph = liToDelete.querySelector(".list__paragraph");
+  const type = event.target.getAttribute("data-type");
+
+  const amount = parseFloat(listParagraph.getAttribute("data-amount"));
+
+  totals[type] -= amount;
+  document.getElementById(`total-${type}`).textContent =
+    totals[type].toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   liToDelete.remove();
 }
 
@@ -180,6 +188,7 @@ types.forEach((type) => {
       editButton.addEventListener("click", handleEdit);
 
       const deleteButton = document.createElement("button");
+      deleteButton.setAttribute("data-type", `${type}`);
       deleteButton.type = "submit";
       deleteButton.name = "delete";
       deleteButton.className = `list__button delete delete--${type}`;
@@ -195,7 +204,7 @@ types.forEach((type) => {
 
       totals[type] += inputAmount;
       document.getElementById(`total-${type}`).textContent =
-        totals[type].toFixed(2);
+        totals[type].toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
       document.getElementById(`${type}-name`).value = "";
       document.getElementById(`${type}-amount`).value = "";
