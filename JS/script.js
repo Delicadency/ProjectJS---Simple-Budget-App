@@ -4,6 +4,44 @@ let totals = {
   income: 0,
   outcome: 0,
 };
+let balance = totals.income - totals.outcome;
+
+function updateBalance() {
+  const header = document.getElementById("header");
+  const headerParagraph = document.getElementById("header-paragraph");
+  const newHeaderParagraph = document.createElement("p");
+  const span = document.createElement("span");
+
+  newHeaderParagraph.className = "header__paragraph txt-a--center";
+  newHeaderParagraph.id = "header-paragraph";
+
+  span.textContent = balance.toLocaleString("pl-PL", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  span.id = "span";
+
+  if (balance > 0) {
+    span.className = "paragraph-gradient--income";
+    const beforeSpan = document.createTextNode("Możesz jeszcze wydać ");
+    const afterSpan = document.createTextNode(" zł");
+    header.replaceWith(newHeaderParagraph);
+    newHeaderParagraph.appendChild(beforeSpan);
+    newHeaderParagraph.appendChild(span);
+    newHeaderParagraph.appendChild(afterSpan);
+  } else if (balance < 0) {
+    span.className = "paragraph-gradient--outcome";
+    const beforeSpan = document.createTextNode("Jesteś na minusie ");
+    const afterSpan = document.createTextNode(" zł");
+    header.replaceWith(newHeaderParagraph);
+    newHeaderParagraph.appendChild(beforeSpan);
+    newHeaderParagraph.appendChild(span);
+    newHeaderParagraph.appendChild(afterSpan);
+  } else {
+    newHeaderParagraph.textContent = "Bilans wynosi zero";
+    headerParagraph.replaceWith(newHeaderParagraph);
+  }
+}
 
 function handleSave(event) {
   const saveButtonID = event.target.id;
@@ -128,26 +166,6 @@ function handleEdit(event) {
 
 const types = ["income", "outcome"];
 types.forEach((type) => {
-  document
-    .getElementById(`total-${type}`)
-    .addEventListener("change", (event) => {
-      event.preventDefault();
-      const balance = totals.income - totals.outcome;
-      const header = document.getElementById("header");
-      const headerParagraph = document.getElementById("header-paragraph");
-      const newHeaderParagraph = document.createElement("p");
-      newHeaderParagraph.className = "header__paragraph txt-a--center";
-      newHeaderParagraph.id = "header-paragraph";
-
-      const spanOnPlus = document.createElement("span");
-      spanOnPlus.className = "paragraph-gradient--income";
-      spanOnPlus.id = "span-on-plus";
-
-      const spanInMinus = document.createElement("span");
-      spanInMinus.className = "paragraph-gradient--outcome";
-      spanInMinus.id = "span-in-minus";
-    });
-
   document
     .getElementById(`${type}-amount`)
     .addEventListener("input", (event) => {
