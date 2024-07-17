@@ -82,6 +82,14 @@
   .input::placeholder {
     font-size: 24px;
   }
+  .error_label {
+    width: 150px;
+    font-size: 20px;
+    transform: translate(0, -20px);
+  }
+  .error {
+    outline: 1px solid var(--error) !important;
+  }
   .list__container {
     width: 700px;
     height: 465px;

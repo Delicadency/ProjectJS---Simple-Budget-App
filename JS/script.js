@@ -5,7 +5,6 @@ let totals = {
   outcome: 0,
 };
 let balance = totals.income - totals.outcome;
-console.log(balance);
 
 function updateBalance() {
   balance = totals.income - totals.outcome;
@@ -205,71 +204,107 @@ types.forEach((type) => {
     .addEventListener("click", (event) => {
       event.preventDefault();
       counter++;
-      const inputName = document.getElementById(`${type}-name`).value;
-      let inputAmount = document.getElementById(`${type}-amount`).value;
-      if (inputName === "" || inputAmount === "") {
-        console.error(
-          "Tu wstaw element z komunikatem o konieczności uzupełnienia obu pól."
-        );
+      const inputName = document.getElementById(`${type}-name`);
+      const inputAmount = document.getElementById(`${type}-amount`);
+      const inputNameValue = document.getElementById(`${type}-name`).value;
+      let inputAmountValue = document.getElementById(`${type}-amount`).value;
+      const labelNameToRemove = document.getElementById(
+        `${type}-name-input-error`
+      );
+      const labelAmountToRemove = document.getElementById(
+        `${type}-amount-input-error`
+      );
+
+      if (inputNameValue === "") {
+        if (!labelNameToRemove) {
+          const errorLabel = document.createElement("label");
+          errorLabel.setAttribute("for", inputName.id);
+          errorLabel.className = "error_label";
+          errorLabel.textContent = "Uzupełnij pole";
+          errorLabel.id = `${type}-name-input-error`;
+          inputName.parentNode.insertBefore(errorLabel, inputName);
+          inputName.classList.add("error");
+          return;
+        }
         return;
+      } else if (inputAmountValue === "") {
+        if (!labelAmountToRemove) {
+          const errorLabel = document.createElement("label");
+          errorLabel.setAttribute("for", inputAmount.id);
+          errorLabel.className = "error_label";
+          errorLabel.textContent = "Uzupełnij pole";
+          errorLabel.id = `${type}-amount-input-error`;
+          inputAmount.parentNode.insertBefore(errorLabel, inputAmount);
+          inputAmount.classList.add("error");
+          return;
+        }
+        return;
+      } else {
+        if (labelAmountToRemove) {
+          labelAmountToRemove.remove();
+          inputAmount.classList.remove("error");
+        }
+        if (labelNameToRemove) {
+          labelNameToRemove.remove();
+          inputName.classList.remove("error");
+        }
+        const li = document.createElement("li");
+        li.className = "flex a-i--center list__element";
+        li.id = `list-element-${counter}`;
+
+        const listParagraph = document.createElement("p");
+        listParagraph.className = "list__paragraph";
+        listParagraph.id = `list-parahraph-${counter}`;
+        listParagraph.textContent = `${inputAmountValue.replace(
+          ".",
+          ","
+        )} zł - ${inputNameValue}`;
+        listParagraph.setAttribute("data-name", inputNameValue);
+        listParagraph.setAttribute("data-amount", inputAmountValue);
+        listParagraph.setAttribute("data-type", type);
+
+        inputAmountValue = parseFloat(inputAmountValue);
+
+        const listDiv = document.createElement("div");
+        listDiv.className =
+          "flex j-c--between a-i--center list__button_container";
+        listDiv.id = `list-div-${counter}`;
+
+        const editButton = document.createElement("button");
+        editButton.setAttribute("data-type", `${type}`);
+        editButton.type = "submit";
+        editButton.name = "edit";
+        editButton.className = `list__button edit edit--${type}`;
+        editButton.id = `button-edit-${counter}`;
+        editButton.addEventListener("click", handleEdit);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.setAttribute("data-type", `${type}`);
+        deleteButton.type = "submit";
+        deleteButton.name = "delete";
+        deleteButton.className = `list__button delete delete--${type}`;
+        deleteButton.id = `button-delete-${counter}`;
+        deleteButton.addEventListener("click", handleDelete);
+
+        const ul = document.getElementById(`${type}-list`);
+        ul.appendChild(li);
+        li.appendChild(listParagraph);
+        li.appendChild(listDiv);
+        listDiv.appendChild(editButton);
+        listDiv.appendChild(deleteButton);
+
+        totals[type] += inputAmountValue;
+        document.getElementById(`total-${type}`).textContent = totals[
+          type
+        ].toLocaleString("pl-PL", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+
+        updateBalance();
+
+        document.getElementById(`${type}-name`).value = "";
+        document.getElementById(`${type}-amount`).value = "";
       }
-
-      const li = document.createElement("li");
-      li.className = "flex a-i--center list__element";
-      li.id = `list-element-${counter}`;
-
-      const listParagraph = document.createElement("p");
-      listParagraph.className = "list__paragraph";
-      listParagraph.id = `list-parahraph-${counter}`;
-      listParagraph.textContent = `${inputAmount.replace(
-        ".",
-        ","
-      )} zł - ${inputName}`;
-      listParagraph.setAttribute("data-name", inputName);
-      listParagraph.setAttribute("data-amount", inputAmount);
-      listParagraph.setAttribute("data-type", type);
-
-      inputAmount = parseFloat(inputAmount);
-
-      const listDiv = document.createElement("div");
-      listDiv.className =
-        "flex j-c--between a-i--center list__button_container";
-      listDiv.id = `list-div-${counter}`;
-
-      const editButton = document.createElement("button");
-      editButton.setAttribute("data-type", `${type}`);
-      editButton.type = "submit";
-      editButton.name = "edit";
-      editButton.className = `list__button edit edit--${type}`;
-      editButton.id = `button-edit-${counter}`;
-      editButton.addEventListener("click", handleEdit);
-
-      const deleteButton = document.createElement("button");
-      deleteButton.setAttribute("data-type", `${type}`);
-      deleteButton.type = "submit";
-      deleteButton.name = "delete";
-      deleteButton.className = `list__button delete delete--${type}`;
-      deleteButton.id = `button-delete-${counter}`;
-      deleteButton.addEventListener("click", handleDelete);
-
-      const ul = document.getElementById(`${type}-list`);
-      ul.appendChild(li);
-      li.appendChild(listParagraph);
-      li.appendChild(listDiv);
-      listDiv.appendChild(editButton);
-      listDiv.appendChild(deleteButton);
-
-      totals[type] += inputAmount;
-      document.getElementById(`total-${type}`).textContent = totals[
-        type
-      ].toLocaleString("pl-PL", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-
-      updateBalance();
-
-      document.getElementById(`${type}-name`).value = "";
-      document.getElementById(`${type}-amount`).value = "";
     });
 });
