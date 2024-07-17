@@ -57,8 +57,47 @@ function handleSave(event) {
   const previousAmount = parseFloat(
     paragraphToChange.getAttribute("data-amount")
   );
+  const labelNameToRemove = document.getElementById(
+    `${matchID}-name-input-error`
+  );
+  const labelAmountToRemove = document.getElementById(
+    `${matchID}-amount-input-error`
+  );
 
-  if (amountInput && nameInput) {
+  if (amountInput.value === "") {
+    if (!labelAmountToRemove) {
+      const errorLabel = document.createElement("label");
+      errorLabel.setAttribute("for", amountInput.id);
+      errorLabel.className = "error_label";
+      errorLabel.textContent = "Uzupełnij pole";
+      errorLabel.id = `${matchID}-amount-input-error`;
+      amountInput.parentNode.insertBefore(errorLabel, amountInput);
+      amountInput.classList.add("error");
+      return;
+    }
+    return;
+  }
+  if (nameInput.value === "") {
+    if (!labelNameToRemove) {
+      const errorLabel = document.createElement("label");
+      errorLabel.setAttribute("for", nameInput.id);
+      errorLabel.className = "error_label";
+      errorLabel.textContent = "Uzupełnij pole";
+      errorLabel.id = `${matchID}-amount-input-error`;
+      nameInput.parentNode.insertBefore(errorLabel, nameInput);
+      nameInput.classList.add("error");
+      return;
+    }
+    return;
+  } else {
+    if (labelAmountToRemove) {
+      labelAmountToRemove.remove();
+      amountInput.classList.remove("error");
+    }
+    if (labelNameToRemove) {
+      labelNameToRemove.remove();
+      nameInput.classList.remove("error");
+    }
     const name = nameInput.value;
     let amount = amountInput.value;
     const type = event.target.getAttribute("data-type");
@@ -93,11 +132,6 @@ function handleSave(event) {
 
     paragraphToChange.replaceWith(listParagraph);
     event.target.replaceWith(editButton);
-  } else {
-    console.error(
-      "Tu wstaw element z komunikatem o konieczności uzupełnienia obu pól."
-    );
-    return;
   }
 }
 
