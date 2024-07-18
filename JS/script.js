@@ -169,6 +169,12 @@ function handleEdit(event) {
   const amount = listParagraph.getAttribute("data-amount");
   const type = event.target.getAttribute("data-type");
 
+  const nameInputWrapper = document.createElement("div");
+  nameInputWrapper.className = "input__wrapper--edit";
+
+  const amountInputWrapper = document.createElement("div");
+  amountInputWrapper.className = "input__wrapper--edit";
+
   const amountInput = document.createElement("input");
   amountInput.type = "number";
   amountInput.autocomplete = "off";
@@ -198,9 +204,11 @@ function handleEdit(event) {
   saveButton.addEventListener("click", handleSave);
 
   listParagraph.innerHTML = "";
-  listParagraph.appendChild(amountInput);
+  listParagraph.appendChild(amountInputWrapper);
+  amountInputWrapper.appendChild(amountInput);
   listParagraph.append(" zł - ");
-  listParagraph.appendChild(nameInput);
+  listParagraph.appendChild(nameInputWrapper);
+  nameInputWrapper.appendChild(nameInput);
   event.target.replaceWith(saveButton);
 }
 
@@ -287,7 +295,7 @@ types.forEach((type) => {
         li.id = `list-element-${counter}`;
 
         const listParagraph = document.createElement("p");
-        listParagraph.className = "list__paragraph";
+        listParagraph.className = "flex a-i--center j-c--between list__paragraph";
         listParagraph.id = `list-parahraph-${counter}`;
         listParagraph.textContent = `${inputAmountValue.replace(
           ".",

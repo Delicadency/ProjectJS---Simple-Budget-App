@@ -44,10 +44,10 @@
     align-self: center;
   }
   .income__container {
-    border: 1px solid var(--income-primary);
+    border: 2px solid var(--income-primary);
   }
   .outcome__container {
-    border: 1px solid var(--outcome-primary);
+    border: 2px solid var(--outcome-primary);
   }
   .input__container {
     width: 700px;
@@ -59,22 +59,25 @@
     border-radius: 2px;
   }
   .input--income:focus {
-    outline: 1px solid var(--income-primary);
+    outline: 2px solid var(--income-primary);
   }
   .input--outcome:focus {
-    outline: 1px solid var(--outcome-primary);
+    outline: 2px solid var(--outcome-primary);
   }
-  .input--text {
+  .input--text,
+  .input__wrapper--text {
     width: 386px;
   }
   .input--edit {
     width: 200px !important;
     height: 55px !important;
   }
-  .input--element {
+  .input--amount,
+  .input__wrapper--amount {
     width: 140px;
   }
   .input__button {
+    width: 140px;
     height: 60px;
     border-radius: 2px;
     font-size: 24px;
@@ -84,11 +87,11 @@
   }
   .error_label {
     width: 150px;
-    font-size: 20px;
-    transform: translate(0, -20px);
+    font-size: 14px;
+    transform: translate(0, -14px);
   }
   .error {
-    outline: 1px solid var(--error) !important;
+    outline: 2px solid var(--error) !important;
   }
   .list__container {
     width: 700px;
@@ -103,7 +106,7 @@
     width: 703px;
     height: 60px;
     border-radius: 2px;
-    margin: 12px 0 0;
+    margin: 16px 0 0;
   }
   .list__paragraph {
     width: 500px;

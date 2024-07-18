@@ -137,30 +137,43 @@ body {
 .input--outcome:focus {
   outline: 0.15625vh solid var(--outcome-primary);
 }
-.input--edit {
+.input__wrapper--edit{
   width: 40% !important;
-  height: 4vh !important;
+  
+}
+.input--edit {
+  width: 100%;
+  height: 3.6vh !important;
   outline: 0.1vh solid;
   outline-color: inherit;
 }
 .input--text {
-  width: 50%;
+  width: 100%;
   position: relative;
 }
-.input--element {
-  width: 21%;
+.input__wrapper--text {
+  width:50%;
+  height: auto;
+}
+.input__wrapper--amount {
+  width:21%;
+  height: auto;
+}
+.input--amount {
+  width: 100%;
+  position:relative;
   -moz-appearance: textfield;
   appearance: none;
-  position: relative;
 }
-.input--element::-webkit-inner-spin-button,
-.input--element::-webkit-outer-spin-button,
+.input--amount::-webkit-inner-spin-button,
+.input--amount::-webkit-outer-spin-button,
 .input--edit::-webkit-outer-spin-button,
 .input--edit::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 .input__button {
+  width: 21%;
   height: 4.375vh;
   border: none;
   border-radius: 0.3125vh;
@@ -187,7 +200,7 @@ body {
   width: 15%;
   height: auto;
   color: var(--error);
-  font-size: 2 rem;
+  font-size: 1.1rem;
   display: block;
   position: absolute;
   transform: translate(0, -1vh);
