@@ -2,12 +2,15 @@
 let counter = 0;
 let totals = {
   income: 0,
-  outcome: 0,
+  expense: 0,
 };
-let balance = totals.income - totals.outcome;
+let balance = totals.income - totals.expense;
+const incomes = [];
+const expenses = [];
 
+/* aktualizacja salda */
 function updateBalance() {
-  balance = totals.income - totals.outcome;
+  balance = totals.income - totals.expense;
 
   const headerParagraph = document.getElementById("header-paragraph");
   const newHeaderParagraph = document.createElement("p");
@@ -31,7 +34,7 @@ function updateBalance() {
     newHeaderParagraph.appendChild(span);
     newHeaderParagraph.appendChild(afterSpan);
   } else if (balance < 0) {
-    span.className = "paragraph-gradient--outcome";
+    span.className = "paragraph-gradient--expense";
     const beforeSpan = document.createTextNode("Jesteś na minusie ");
     const afterSpan = document.createTextNode(" zł");
     headerParagraph.replaceWith(newHeaderParagraph);
@@ -44,6 +47,7 @@ function updateBalance() {
   }
 }
 
+/* obsługa zapisu */
 function handleSave(event) {
   const saveButtonID = event.target.id;
   const splitID = saveButtonID.split("-");
@@ -135,6 +139,7 @@ function handleSave(event) {
   }
 }
 
+/* obsługa usunięcia elementu */
 function handleDelete(event) {
   const deleteButtonID = event.target.id;
   const splitID = deleteButtonID.split("-");
@@ -158,6 +163,7 @@ function handleDelete(event) {
   liToDelete.remove();
 }
 
+/* obsługa edycji */
 function handleEdit(event) {
   const editButtonID = event.target.id;
   const splitID = editButtonID.split("-");
@@ -212,38 +218,19 @@ function handleEdit(event) {
   event.target.replaceWith(saveButton);
 }
 
-const types = ["income", "outcome"];
+/* obsługa głównych inputów */
+
+const types = ["income", "expense"];
 types.forEach((type) => {
+  /*  aktualizacja salda */
   document
     .getElementById(`total-${type}`)
     .addEventListener("change", updateBalance);
 
+  /* dodawanie nowego elementu ul */
   document
-    .getElementById(`${type}-amount`)
-    .addEventListener("input", (event) => {
-      event.preventDefault();
-      const input = event.target;
-      let value = input.value;
-      const regex = /^\d{0,7}(\.\d{0,2})?$/;
-      if (!regex.test(value)) {
-        value = value.slice(0, -1);
-        input.value = value;
-      }
-    });
-
-  document.getElementById(`${type}-name`).addEventListener("input", (event) => {
-    event.preventDefault();
-    const input = event.target;
-    let value = input.value;
-    const regex = /^.{0,30}$/;
-    if (!regex.test(value)) {
-      (value = value.slice(0, 30)), (input.value = value);
-    }
-  });
-
-  document
-    .getElementById(`input-button-${type}`)
-    .addEventListener("click", (event) => {
+    .getElementById(`${type}-form`)
+    .addEventListener("submit", (event) => {
       event.preventDefault();
       counter++;
       const inputName = document.getElementById(`${type}-name`);
@@ -295,7 +282,8 @@ types.forEach((type) => {
         li.id = `list-element-${counter}`;
 
         const listParagraph = document.createElement("p");
-        listParagraph.className = "flex a-i--center j-c--between list__paragraph";
+        listParagraph.className =
+          "flex a-i--center j-c--between list__paragraph";
         listParagraph.id = `list-parahraph-${counter}`;
         listParagraph.textContent = `${inputAmountValue.replace(
           ".",

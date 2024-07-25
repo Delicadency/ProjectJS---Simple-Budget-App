@@ -46,8 +46,8 @@
   .income__container {
     border: 2px solid var(--income-primary);
   }
-  .outcome__container {
-    border: 2px solid var(--outcome-primary);
+  .expense__container {
+    border: 2px solid var(--expense-primary);
   }
   .input__container {
     width: 700px;
@@ -61,8 +61,8 @@
   .input--income:focus {
     outline: 2px solid var(--income-primary);
   }
-  .input--outcome:focus {
-    outline: 2px solid var(--outcome-primary);
+  .input--expense:focus {
+    outline: 2px solid var(--expense-primary);
   }
   .input--text,
   .input__wrapper--text {

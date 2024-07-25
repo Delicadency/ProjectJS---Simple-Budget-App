@@ -32,7 +32,7 @@
           class="flex f--wrap j-c--center income__container container"
           id="income-inputs"
         >
-          <div class="flex j-c--between input__container">
+          <form class="flex j-c--between input__container" id="income-form">
             <div class="input__wrapper--text">
               <input
                 type="text"
@@ -62,29 +62,29 @@
             >
               Dodaj
             </button>
-          </div>
+          </form>
           <ul
             class="flex f--wrap list__container list__container--income f-s-14"
             id="income-list"
           ></ul>
         </section>
       </section>
-      <section class="flex f--wrap a-i--center j-c--center m--top" id="outcome">
+      <section class="flex f--wrap a-i--center j-c--center m--top" id="expense">
         <div class="flex j-c--between a-i--center container__paragraph f-s-20">
-          <p class="paragraph-gradient--outcome">Wydatki</p>
-          <p class="paragraph-gradient--outcome" id="total-outcome">0,00</p>
+          <p class="paragraph-gradient--expense">Wydatki</p>
+          <p class="paragraph-gradient--expense" id="total-expense">0,00</p>
         </div>
         <section
-          class="flex f--wrap j-c--center outcome__container container"
-          id="outcome-inputs"
+          class="flex f--wrap j-c--center expense__container container"
+          id="expense-inputs"
         >
-          <div class="flex j-c--between input__container">
+          <form class="flex j-c--between input__container" id="expense-form">
             <div class="input__wrapper--text">
               <input
                 type="text"
-                class="input input--text input--outcome txt-a--center f-s-14"
+                class="input input--text input--expense txt-a--center f-s-14"
                 placeholder="Nazwa wydatku"
-                id="outcome-name"
+                id="expense-name"
                 autocomplete="off"
                 maxlength="30"
               />
@@ -92,9 +92,9 @@
             <div class="input__wrapper--amount">
               <input
                 type="number"
-                class="input input--amount input--outcome txt-a--center f-s-14"
+                class="input input--amount input--expense txt-a--center f-s-14"
                 placeholder="Kwota"
-                id="outcome-amount"
+                id="expense-amount"
                 autocomplete="off"
                 maxlength="10"
                 pattern="^\d{0,7}(\.\d{0,2})?$"
@@ -103,15 +103,15 @@
             </div>
             <button
               type="submit"
-              class="input__button input__button--outcome txt-a--center f-s-14"
-              id="input-button-outcome"
+              class="input__button input__button--expense txt-a--center f-s-14"
+              id="input-button-expense"
             >
               Dodaj
             </button>
-          </div>
+          </form>
           <ul
-            class="flex f--wrap list__container list__container--outcome f-s-14"
-            id="outcome-list"
+            class="flex f--wrap list__container list__container--expense f-s-14"
+            id="expense-list"
           ></ul>
         </section>
       </section>

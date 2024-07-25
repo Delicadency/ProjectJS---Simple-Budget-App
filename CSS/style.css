@@ -4,9 +4,9 @@
   --income-primary: #219ebc;
   --income-secondary: #8ecae6;
   --income-secondary-transparent: #8ecae620;
-  --outcome-primary: #fb8500;
-  --outcome-secondary: #ffb703;
-  --outcome-secondary-transparent: #ffb70320;
+  --expense-primary: #fb8500;
+  --expense-secondary: #ffb703;
+  --expense-secondary-transparent: #ffb70320;
   --error: red;
   font-size: 1vh;
   scroll-behavior: smooth;
@@ -69,11 +69,11 @@ body {
   background-clip: text;
   color: transparent;
 }
-.paragraph-gradient--outcome {
+.paragraph-gradient--expense {
   background-image: linear-gradient(
     to bottom,
-    var(--outcome-primary),
-    var(--outcome-secondary)
+    var(--expense-primary),
+    var(--expense-secondary)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -101,9 +101,9 @@ body {
   background-color: var(--income-secondary-transparent);
   border: 0.15625vh solid var(--income-primary);
 }
-.outcome__container {
-  background-color: var(--outcome-secondary-transparent);
-  border: 0.15625vh solid var(--outcome-primary);
+.expense__container {
+  background-color: var(--expense-secondary-transparent);
+  border: 0.15625vh solid var(--expense-primary);
 }
 .input__container {
   width: 90%;
@@ -127,19 +127,18 @@ body {
 .input--income::placeholder {
   color: var(--income-primary);
 }
-.input--outcome,
-.input--outcome::placeholder {
-  color: var(--outcome-primary);
+.input--expense,
+.input--expense::placeholder {
+  color: var(--expense-primary);
 }
 .input--income:focus {
   outline: 0.15625vh solid var(--income-primary);
 }
-.input--outcome:focus {
-  outline: 0.15625vh solid var(--outcome-primary);
+.input--expense:focus {
+  outline: 0.15625vh solid var(--expense-primary);
 }
-.input__wrapper--edit{
+.input__wrapper--edit {
   width: 40% !important;
-  
 }
 .input--edit {
   width: 100%;
@@ -152,16 +151,16 @@ body {
   position: relative;
 }
 .input__wrapper--text {
-  width:50%;
+  width: 50%;
   height: auto;
 }
 .input__wrapper--amount {
-  width:21%;
+  width: 21%;
   height: auto;
 }
 .input--amount {
   width: 100%;
-  position:relative;
+  position: relative;
   -moz-appearance: textfield;
   appearance: none;
 }
@@ -188,13 +187,13 @@ body {
   background-color: var(--light);
   color: var(--income-primary);
 }
-.input__button--outcome {
-  background-color: var(--outcome-primary);
+.input__button--expense {
+  background-color: var(--expense-primary);
   color: var(--light);
 }
-.input__button--outcome:active {
+.input__button--expense:active {
   background-color: var(--light);
-  color: var(--outcome-primary);
+  color: var(--expense-primary);
 }
 .error_label {
   width: 15%;
@@ -217,8 +216,8 @@ body {
 .list__container--income {
   color: var(--income-primary);
 }
-.list__container--outcome {
-  color: var(--outcome-primary);
+.list__container--expense {
+  color: var(--expense-primary);
 }
 .list__element {
   width: 100%;
@@ -258,11 +257,11 @@ body {
   background-image: url("../svg/pen-income.svg");
   background-color: var(--light);
 }
-.edit--outcome {
-  background-color: var(--outcome-secondary);
+.edit--expense {
+  background-color: var(--expense-secondary);
 }
-.edit--outcome:active {
-  background-image: url("../svg/pen-outcome.svg");
+.edit--expense:active {
+  background-image: url("../svg/pen-expense.svg");
   background-color: var(--light);
 }
 .delete {
@@ -275,11 +274,11 @@ body {
   background-image: url("../svg/x-income.svg");
   background-color: var(--light);
 }
-.delete--outcome {
-  background-color: var(--outcome-primary);
+.delete--expense {
+  background-color: var(--expense-primary);
 }
-.delete--outcome:active {
-  background-image: url("../svg/x-outcome.svg");
+.delete--expense:active {
+  background-image: url("../svg/x-expense.svg");
   background-color: var(--light);
 }
 .save {
@@ -292,10 +291,10 @@ body {
   background-image: url("../svg/save-income.svg");
   background-color: var(--light);
 }
-.save--outcome {
-  background-color: var(--outcome-secondary);
+.save--expense {
+  background-color: var(--expense-secondary);
 }
-.save--outcome:active {
-  background-image: url("../svg/save-outcome.svg");
+.save--expense:active {
+  background-image: url("../svg/save-expense.svg");
   background-color: var(--light);
 }
