@@ -1,4 +1,4 @@
-import handleMainSubmitForm from "./handleMainSubmitForm";
+import handleMainSubmitForm from "./handleMainSubmitForm.js";
 
 
 document.getElementById('income-form').addEventListener("submit", (event) => handleMainSubmitForm(event, 'income'));

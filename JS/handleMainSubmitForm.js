@@ -9,8 +9,8 @@ function handleMainSubmitForm(event, type) {
   const text = textInput.value.trim();
   const amount = parseFloat(amountInput.value);
 
-  const textErrorLabel = event.target.querrySelector(`#${type}-text-error`);
-  const amountErrorLabel = event.target.querrySelector(`#${type}-amount-error`);
+  const textErrorLabel = event.target.querySelector(`#${type}-name-error`);
+  const amountErrorLabel = event.target.querySelector(`#${type}-amount-error`);
 
   let isValid = true;
 
@@ -38,7 +38,6 @@ function handleMainSubmitForm(event, type) {
       expenses.push(entry);
     }
   }
-
   textInput.value = "";
   amountInput.value = "";
 }
