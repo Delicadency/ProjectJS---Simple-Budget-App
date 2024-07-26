@@ -199,10 +199,10 @@ body {
   width: 15%;
   height: auto;
   color: var(--error);
-  font-size: 1.1rem;
-  display: block;
+  font-size: 1.3rem;
+  display: none;
   position: absolute;
-  transform: translate(0, -1vh);
+  transform: translate(0, -1.2vh);
 }
 .error {
   outline: 0.15625vh solid var(--error) !important;
