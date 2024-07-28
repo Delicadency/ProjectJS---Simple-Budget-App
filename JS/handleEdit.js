@@ -1,3 +1,5 @@
+import { incomes, expenses } from "./data.js";
+
 export function handleEdit(li, type, editButton) {
   const id = li.getAttribute("data-id");
   const listParagraph = li.querySelector(".list__paragraph");
@@ -18,6 +20,7 @@ export function handleEdit(li, type, editButton) {
 
   const textErrorLabel = document.createElement("label");
   textErrorLabel.className = "error_label";
+  textErrorLabel.textContent = "Uzupełnij pole";
   (textErrorLabel.setAttribute = "for"), `text-${id}`;
 
   const textWrapper = document.createElement("div");
@@ -36,20 +39,11 @@ export function handleEdit(li, type, editButton) {
 
   const amountErrorLabel = document.createElement("label");
   amountErrorLabel.className = "error_label";
+  amountErrorLabel.textContent = "Uzupełnij pole";
   (amountErrorLabel.setAttribute = "for"), `amount-${id}`;
 
   const amountWrapper = document.createElement("div");
   amountWrapper.className = "input__wrapper--edit";
-
-  const saveButton = document.createElement("button");
-  saveButton.type = "submit";
-  saveButton.name = "save";
-  saveButton.className = `list__button save save--${type}`;
-  saveButton.id = `button-save-${id}`;
-  saveButton.addEventListener(
-    "click",
-    handleSave(textInput, amountInput, type, id)
-  );
 
   listParagraph.innerHTML = "";
   listParagraph.appendChild(amountWrapper);
@@ -58,5 +52,57 @@ export function handleEdit(li, type, editButton) {
   listParagraph.appendChild(textWrapper);
   textWrapper.appendChild(textErrorLabel);
   textWrapper.appendChild(textInput);
+
+  const saveButton = document.createElement("button");
+  saveButton.type = "submit";
+  saveButton.name = "save";
+  saveButton.className = `list__button save save--${type}`;
+  saveButton.id = `button-save-${id}`;
+  saveButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const newText = textInput.value.trim();
+    const newAmount = parseFloat(amountInput.value);
+    let isValid = true;
+
+    if (!newText) {
+      textErrorLabel.style.display = "block";
+      textInput.classList.add("error");
+      isValid = false;
+    } else {
+      textErrorLabel.style.display = "none";
+      textInput.classList.remove("error");
+    }
+    if (isNaN(newAmount) || newAmount <= 0) {
+      amountErrorLabel.style.display = "block";
+      amountInput.classList.add("error");
+      isValid = false;
+    } else {
+      amountErrorLabel.style.display = "none";
+      amountInput.classList.remove("error");
+    }
+
+    if (isValid) {
+      listParagraph.textContent = `${newAmount.toLocaleString("pl-PL", {
+        minimumFractionDigits: 2,
+      })} zł - ${newText}`;
+
+      if (type === "income") {
+        const entry = incomes.find((income) => income.id == id);
+        if (entry) {
+          entry.text = newText;
+          entry.amount = newAmount;
+        }
+      } else if (type === "expense") {
+        const entry = expenses.find((expense) => expense.id == id);
+        if (entry) {
+          entry.text = newText;
+          entry.amount = newAmount;
+        }
+      }
+    
+    }
+  });
+
   editButton.replaceWith(saveButton);
 }
