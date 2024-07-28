@@ -37,6 +37,7 @@ export function handleEdit(li, type, editButton) {
   amountInput.id = `amount-${id}`;
   amountInput.inputMode = "numeric";
   amountInput.pattern = "^d{0,7}(.d{0,2})?$";
+  amountInput.step = "0.01";
 
   const amountErrorLabel = document.createElement("label");
   amountErrorLabel.className = "error_label";
