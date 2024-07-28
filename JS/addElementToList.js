@@ -1,4 +1,4 @@
-import { handleEdit } from "./handleEdit";
+import { handleEdit } from "./handleEdit.js";
 
 export function addElementToList(type, text, amount) {
   const list = document.querySelector(`#${type}-list`);

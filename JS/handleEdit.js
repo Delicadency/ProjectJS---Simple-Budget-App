@@ -45,7 +45,7 @@ export function handleEdit(li, type, editButton) {
   saveButton.type = "submit";
   saveButton.name = "save";
   saveButton.className = `list__button save save--${type}`;
-  saveButton.id = `button-save-${matchID}`;
+  saveButton.id = `button-save-${id}`;
   saveButton.addEventListener(
     "click",
     handleSave(textInput, amountInput, type, id)
