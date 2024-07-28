@@ -21,7 +21,7 @@ export function handleEdit(li, type, editButton) {
   const textErrorLabel = document.createElement("label");
   textErrorLabel.className = "error_label";
   textErrorLabel.textContent = "Uzupełnij pole";
-  (textErrorLabel.setAttribute = "for"), `text-${id}`;
+  textErrorLabel.setAttribute("for", `text-${id}`);
 
   const textWrapper = document.createElement("div");
   textWrapper.className = "input__wrapper--edit";
@@ -40,7 +40,7 @@ export function handleEdit(li, type, editButton) {
   const amountErrorLabel = document.createElement("label");
   amountErrorLabel.className = "error_label";
   amountErrorLabel.textContent = "Uzupełnij pole";
-  (amountErrorLabel.setAttribute = "for"), `amount-${id}`;
+  amountErrorLabel.setAttribute("for", `amount-${id}`);
 
   const amountWrapper = document.createElement("div");
   amountWrapper.className = "input__wrapper--edit";
