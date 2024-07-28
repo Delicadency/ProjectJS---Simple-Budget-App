@@ -1,4 +1,5 @@
 import { incomes, expenses } from "./data.js";
+import { updateBalance } from "./updateBalance.js";
 
 export function handleEdit(li, type, editButton) {
   const id = li.getAttribute("data-id");
@@ -102,6 +103,7 @@ export function handleEdit(li, type, editButton) {
         }
       }
       saveButton.replaceWith(editButton);
+      updateBalance();
     }
   });
 }

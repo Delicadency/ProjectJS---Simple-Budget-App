@@ -1,4 +1,6 @@
 import { incomes, expenses } from "./data.js";
+import { updateBalance } from "./updateBalance.js";
+
 export function handleDelete(li, type) {
   const id = li.getAttribute("data-id");
   li.remove();
@@ -14,4 +16,5 @@ export function handleDelete(li, type) {
       expenses.splice(index, 1);
     }
   }
+  updateBalance();
 }

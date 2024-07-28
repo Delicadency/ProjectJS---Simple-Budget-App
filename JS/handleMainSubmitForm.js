@@ -1,5 +1,6 @@
 import { incomes, expenses } from "./data.js";
 import { addElementToList } from "./addElementToList.js";
+import { updateBalance } from "./updateBalance.js";
 
 function handleMainSubmitForm(event, type) {
   event.preventDefault();
@@ -49,6 +50,7 @@ function handleMainSubmitForm(event, type) {
       expenses.push(entry);
     }
     addElementToList(type, text, amount);
+    updateBalance();
   }
 }
 
