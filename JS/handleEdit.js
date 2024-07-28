@@ -6,9 +6,9 @@ export function handleEdit(li, type, editButton) {
   const listParagraph = li.querySelector(".list__paragraph");
 
   const currentText = listParagraph.textContent.split(" zł - ")[1];
-  const currentAmount = parseFloat(
-    listParagraph.textContent.split(" zł - ")[0].replace(",", ".")
-  );
+  const textContent = listParagraph.textContent;
+  const amountText = textContent.split('zł - ')[0].trim();
+  const currentAmount = parseFloat(amountText.replace(/\s/g, '').replace(',', '.'));
 
   const textInput = document.createElement("input");
   textInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
