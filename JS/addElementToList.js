@@ -19,7 +19,7 @@ export function addElementToList(type, text, amount) {
   editButton.type = "submit";
   editButton.className = `list__button edit edit--${type}`;
   editButton.name = "edit-button";
-  /*  Dodaj event listener dla funkcji handleEdit*/
+  editButton.addEventListener("click", () => handleEdit(li, type, editButton));
 
   const deleteButton = document.createElement("button");
   deleteButton.type = "submit";
