@@ -1,9 +1,11 @@
+import { handleEdit } from "./handleEdit";
+
 export function addElementToList(type, text, amount) {
   const list = document.querySelector(`#${type}-list`);
 
   const li = document.createElement("li");
   li.className = "flex a-i--center list__element";
-  li.setAttribute("data-id", Date.now())
+  li.setAttribute("data-id", Date.now());
 
   const listParagraph = document.createElement("p");
   listParagraph.className = "flex a-i--center j-c--between list__paragraph";

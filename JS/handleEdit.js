@@ -1,5 +1,3 @@
-import { incomes, expenses } from "./data";
-
 export function handleEdit(li, type, editButton) {
   const id = li.getAttribute("data-id");
   const listParagraph = li.querySelector(".list__paragraph");
@@ -20,7 +18,7 @@ export function handleEdit(li, type, editButton) {
 
   const textErrorLabel = document.createElement("label");
   textErrorLabel.className = "error_label";
-  textErrorLabel.setAttribute = "for", `text-${id}`;
+  (textErrorLabel.setAttribute = "for"), `text-${id}`;
 
   const textWrapper = document.createElement("div");
   textWrapper.className = "input__wrapper--edit";
@@ -38,17 +36,20 @@ export function handleEdit(li, type, editButton) {
 
   const amountErrorLabel = document.createElement("label");
   amountErrorLabel.className = "error_label";
-  amountErrorLabel.setAttribute = "for", `amount-${id}`;
+  (amountErrorLabel.setAttribute = "for"), `amount-${id}`;
 
   const amountWrapper = document.createElement("div");
-  amountWrapper.className =  "input__wrapper--edit";
+  amountWrapper.className = "input__wrapper--edit";
 
   const saveButton = document.createElement("button");
   saveButton.type = "submit";
   saveButton.name = "save";
   saveButton.className = `list__button save save--${type}`;
   saveButton.id = `button-save-${matchID}`;
-  saveButton.addEventListener("click", handleSave(textInput, amountInput, type, id));
+  saveButton.addEventListener(
+    "click",
+    handleSave(textInput, amountInput, type, id)
+  );
 
   listParagraph.innerHTML = "";
   listParagraph.appendChild(amountWrapper);
@@ -58,5 +59,4 @@ export function handleEdit(li, type, editButton) {
   textWrapper.appendChild(textErrorLabel);
   textWrapper.appendChild(textInput);
   editButton.replaceWith(saveButton);
-
 }
