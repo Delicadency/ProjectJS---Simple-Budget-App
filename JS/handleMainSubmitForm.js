@@ -1,4 +1,5 @@
 import { incomes, expenses } from "./data.js";
+import { addElementToList } from "./addElementToList.js";
 
 function handleMainSubmitForm(event, type) {
   event.preventDefault();
@@ -46,6 +47,7 @@ function handleMainSubmitForm(event, type) {
     } else if (type === "expense") {
       expenses.push(entry);
     }
+    addElementToList(type, text, amount);
   }
 }
 
