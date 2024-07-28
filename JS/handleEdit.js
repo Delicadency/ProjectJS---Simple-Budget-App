@@ -58,6 +58,7 @@ export function handleEdit(li, type, editButton) {
   saveButton.name = "save";
   saveButton.className = `list__button save save--${type}`;
   saveButton.id = `button-save-${id}`;
+  editButton.replaceWith(saveButton);
   saveButton.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -100,9 +101,7 @@ export function handleEdit(li, type, editButton) {
           entry.amount = newAmount;
         }
       }
-    
+      saveButton.replaceWith(editButton);
     }
   });
-
-  editButton.replaceWith(saveButton);
 }
