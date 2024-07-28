@@ -33,22 +33,6 @@
           id="income-inputs"
         >
           <form class="flex j-c--between input__container" id="income-form">
-            <div class="input__wrapper--text">
-              <label
-                class="error_label"
-                for="income-name"
-                id="income-name-error"
-                >Uzupełnij pole</label
-              >
-              <input
-                type="text"
-                class="input input--text input--income txt-a--center f-s-14"
-                placeholder="Nazwa przychodu"
-                id="income-name"
-                autocomplete="off"
-                maxlength="30"
-              />
-            </div>
             <div class="input__wrapper--amount">
               <label
                 class="error_label"
@@ -66,6 +50,22 @@
                 pattern="^\d{0,7}(\.\d{0,2})?$"
                 inputmode="numeric"
                 step="0.01"
+              />
+            </div>
+            <div class="input__wrapper--text">
+              <label
+                class="error_label"
+                for="income-name"
+                id="income-name-error"
+                >Uzupełnij pole</label
+              >
+              <input
+                type="text"
+                class="input input--text input--income txt-a--center f-s-14"
+                placeholder="Nazwa przychodu"
+                id="income-name"
+                autocomplete="off"
+                maxlength="30"
               />
             </div>
             <button
@@ -92,22 +92,6 @@
           id="expense-inputs"
         >
           <form class="flex j-c--between input__container" id="expense-form">
-            <div class="input__wrapper--text">
-              <label
-                class="error_label"
-                for="expense-name"
-                id="expense-name-error"
-                >Uzupełnij pole</label
-              >
-              <input
-                type="text"
-                class="input input--text input--expense txt-a--center f-s-14"
-                placeholder="Nazwa wydatku"
-                id="expense-name"
-                autocomplete="off"
-                maxlength="30"
-              />
-            </div>
             <div class="input__wrapper--amount">
               <label
                 class="error_label"
@@ -125,6 +109,22 @@
                 pattern="^\d{0,7}(\.\d{0,2})?$"
                 inputmode="numeric"
                 step="0.01"
+              />
+            </div>
+            <div class="input__wrapper--text">
+              <label
+                class="error_label"
+                for="expense-name"
+                id="expense-name-error"
+                >Uzupełnij pole</label
+              >
+              <input
+                type="text"
+                class="input input--text input--expense txt-a--center f-s-14"
+                placeholder="Nazwa wydatku"
+                id="expense-name"
+                autocomplete="off"
+                maxlength="30"
               />
             </div>
             <button
