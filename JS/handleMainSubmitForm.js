@@ -16,14 +16,20 @@ function handleMainSubmitForm(event, type) {
 
   if (!text) {
     textErrorLabel.style.display = "block";
+    textInput.classList.add("error");
     isValid = false;
   } else {
     textErrorLabel.style.display = "none";
+    textInput.classList.remove("error");
   }
 
   if (isNaN(amount) || amount <= 0) {
     amountErrorLabel.style.display = "block";
+    amountInput.classList.add("error");
     isValid = false;
+  } else {
+    amountErrorLabel.style.display = "none";
+    amountInput.classList.remove("error");
   }
 
   if (isValid) {
@@ -32,14 +38,15 @@ function handleMainSubmitForm(event, type) {
       amount,
     };
 
+    textInput.value = "";
+    amountInput.value = "";
+
     if (type === "income") {
       incomes.push(entry);
     } else if (type === "expense") {
       expenses.push(entry);
     }
   }
-  textInput.value = "";
-  amountInput.value = "";
 }
 
 export default handleMainSubmitForm;
