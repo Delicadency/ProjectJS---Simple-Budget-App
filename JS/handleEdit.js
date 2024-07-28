@@ -118,6 +118,7 @@ export function handleEdit(li, type, editButton, deleteButton) {
       updateBalance();
     }
   });
+
   cancelButton.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -126,5 +127,19 @@ export function handleEdit(li, type, editButton, deleteButton) {
     })} zł - ${currentText}`;
     saveButton.replaceWith(editButton);
     cancelButton.replaceWith(deleteButton);
+  });
+
+  li.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      saveButton.click();
+    }
+  });
+  
+  li.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      cancelButton.click();
+    }
   });
 }
