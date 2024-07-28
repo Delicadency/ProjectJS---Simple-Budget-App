@@ -1,4 +1,5 @@
 import { handleEdit } from "./handleEdit.js";
+import { handleDelete } from "./handleDelete.js";
 
 export function addElementToList(type, text, amount) {
   const list = document.querySelector(`#${type}-list`);
@@ -27,7 +28,9 @@ export function addElementToList(type, text, amount) {
   deleteButton.type = "submit";
   deleteButton.className = `list__button delete delete--${type}`;
   deleteButton.name = "delete-button";
-  /*  Dodaj event listeren dla funkcji handleDelete */
+  deleteButton.addEventListener("click", () =>
+    handleDelete(li, type)
+  );
 
   list.appendChild(li);
   li.appendChild(listParagraph);
