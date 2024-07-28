@@ -38,4 +38,16 @@ export function updateBalance() {
     newHeaderParagraph.textContent = "Bilans wynosi zero";
     headerParagraph.replaceWith(newHeaderParagraph);
   }
+
+  const incomesSum = document.querySelector("#total-income");
+  incomesSum.textContent = totalIncomes.toLocaleString("pl-PL", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
+  const expensesSum = document.querySelector("#total-expense");
+  expensesSum.textContent = totalExpenses.toLocaleString("pl-PL", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }
