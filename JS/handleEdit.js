@@ -1,14 +1,16 @@
 import { incomes, expenses } from "./data.js";
 import { updateBalance } from "./updateBalance.js";
 
-export function handleEdit(li, type, editButton) {
+export function handleEdit(li, type, editButton, deleteButton) {
   const id = li.getAttribute("data-id");
   const listParagraph = li.querySelector(".list__paragraph");
 
   const currentText = listParagraph.textContent.split(" zł - ")[1];
   const textContent = listParagraph.textContent;
-  const amountText = textContent.split('zł - ')[0].trim();
-  const currentAmount = parseFloat(amountText.replace(/\s/g, '').replace(',', '.'));
+  const amountText = textContent.split("zł - ")[0].trim();
+  const currentAmount = parseFloat(
+    amountText.replace(/\s/g, "").replace(",", ".")
+  );
 
   const textInput = document.createElement("input");
   textInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
@@ -61,6 +63,14 @@ export function handleEdit(li, type, editButton) {
   saveButton.className = `list__button save save--${type}`;
   saveButton.id = `button-save-${id}`;
   editButton.replaceWith(saveButton);
+
+  const cancelButton = document.createElement("button");
+  cancelButton.type = "submit";
+  cancelButton.name = "cancel";
+  cancelButton.className = `list__button cancel cancel--${type}`;
+  cancelButton.id = `button-cancel-${id}`;
+  deleteButton.replaceWith(cancelButton);
+
   saveButton.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -104,7 +114,17 @@ export function handleEdit(li, type, editButton) {
         }
       }
       saveButton.replaceWith(editButton);
+      cancelButton.replaceWith(deleteButton);
       updateBalance();
     }
+  });
+  cancelButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    listParagraph.textContent = `${currentAmount.toLocaleString("pl-PL", {
+      minimumFractionDigits: 2,
+    })} zł - ${currentText}`;
+    saveButton.replaceWith(editButton);
+    cancelButton.replaceWith(deleteButton);
   });
 }

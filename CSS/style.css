@@ -265,20 +265,20 @@ body {
   background-color: var(--light);
 }
 .delete {
-  background-image: url("../svg/x.svg");
+  background-image: url("../svg/trash.svg");
 }
 .delete--income {
   background-color: var(--income-primary);
 }
 .delete--income:active {
-  background-image: url("../svg/x-income.svg");
+  background-image: url("../svg/trash-income.svg");
   background-color: var(--light);
 }
 .delete--expense {
   background-color: var(--expense-primary);
 }
 .delete--expense:active {
-  background-image: url("../svg/x-expense.svg");
+  background-image: url("../svg/trash-expense.svg");
   background-color: var(--light);
 }
 .save {
@@ -296,5 +296,22 @@ body {
 }
 .save--expense:active {
   background-image: url("../svg/save-expense.svg");
+  background-color: var(--light);
+}
+.cancel {
+  background-image: url("../svg/x.svg");
+}
+.cancel--income {
+  background-color: var(--income-secondary);
+}
+.cancel--income:active {
+  background-image: url("../svg/x-income.svg");
+  background-color: var(--light);
+}
+.cancel--expense {
+  background-color: var(--expense-secondary);
+}
+.cancel--expense:active {
+  background-image: url("../svg/x-expense.svg");
   background-color: var(--light);
 }

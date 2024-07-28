@@ -22,15 +22,15 @@ export function addElementToList(type, text, amount) {
   editButton.type = "submit";
   editButton.className = `list__button edit edit--${type}`;
   editButton.name = "edit-button";
-  editButton.addEventListener("click", () => handleEdit(li, type, editButton));
+  editButton.addEventListener("click", () =>
+    handleEdit(li, type, editButton, deleteButton)
+  );
 
   const deleteButton = document.createElement("button");
   deleteButton.type = "submit";
   deleteButton.className = `list__button delete delete--${type}`;
   deleteButton.name = "delete-button";
-  deleteButton.addEventListener("click", () =>
-    handleDelete(li, type)
-  );
+  deleteButton.addEventListener("click", () => handleDelete(li, type));
 
   list.appendChild(li);
   li.appendChild(listParagraph);
