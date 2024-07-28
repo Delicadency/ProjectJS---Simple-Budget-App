@@ -35,6 +35,7 @@ function handleMainSubmitForm(event, type) {
 
   if (isValid) {
     const entry = {
+      id: Date.now(),
       text,
       amount,
     };
