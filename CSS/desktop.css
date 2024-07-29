@@ -65,15 +65,16 @@
     outline: 2px solid var(--expense-primary);
   }
   .input--text,
-  .input__wrapper--text {
+  .input__wrapper--text,
+  .input__wrapper--edit-text {
     width: 386px;
   }
   .input--edit {
-    width: 200px !important;
     height: 55px !important;
   }
   .input--amount,
-  .input__wrapper--amount {
+  .input__wrapper--amount,
+  .input__wrapper--edit-amount {
     width: 140px;
   }
   .input__button {

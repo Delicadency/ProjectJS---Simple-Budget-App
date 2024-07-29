@@ -28,7 +28,7 @@ export function handleEdit(li, type, editButton, deleteButton) {
   textErrorLabel.setAttribute("for", `text-${id}`);
 
   const textWrapper = document.createElement("div");
-  textWrapper.className = "input__wrapper--edit";
+  textWrapper.className = "input__wrapper--edit-text";
 
   const amountInput = document.createElement("input");
   amountInput.className = `input input--edit input--${type} txt-a--center f-s-14`;
@@ -48,7 +48,7 @@ export function handleEdit(li, type, editButton, deleteButton) {
   amountErrorLabel.setAttribute("for", `amount-${id}`);
 
   const amountWrapper = document.createElement("div");
-  amountWrapper.className = "input__wrapper--edit";
+  amountWrapper.className = "input__wrapper--edit-amount";
 
   listParagraph.innerHTML = "";
   listParagraph.appendChild(amountWrapper);
