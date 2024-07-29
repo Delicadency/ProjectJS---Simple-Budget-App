@@ -1,5 +1,6 @@
 import { incomes, expenses } from "./data.js";
 import { updateBalance } from "./updateBalance.js";
+import { validateAmountInputs } from "./validateAmountInputs.js";
 
 export function handleEdit(li, type, editButton, deleteButton) {
   const id = li.getAttribute("data-id");
@@ -135,11 +136,14 @@ export function handleEdit(li, type, editButton, deleteButton) {
       saveButton.click();
     }
   });
-  
+
   li.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       event.preventDefault();
       cancelButton.click();
     }
   });
+  if (amountInput) {
+    validateAmountInputs(amountInput);
+  }
 }
