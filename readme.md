@@ -20,7 +20,9 @@ Projekt został stworzony na potrzeby Bootcampu Frontend Developer organizowaneg
 	<li><b>JavaScript:</b> Do implementacji funkcjonalności i interaktywności.</li>
 </ul>
 </br>
---------------------------------------------------------------------------------------------------------
+
+---
+
 </br></br>
 Is a web application designed to help you manage your household budget. With this tool, you can easily input and track your expenses and income, ensuring better financial management.</br>
 </br>
