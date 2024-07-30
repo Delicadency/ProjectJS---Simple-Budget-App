@@ -3,7 +3,7 @@ To aplikacja zaprojektowana, aby pomóc w zarządzaniu budżetem domowym. Dzięk
 </br>
 Projekt został stworzony na potrzeby Bootcampu Frontend Developer organizowanego przez <b>Future Collars</b>. Celem było zbudowanie prostej aplikacji monitorującej miesięczne wydatki domowe. Aplikacja umożliwia użytkownikom wprowadzenie zarówno przychodów (np. wypłata, sprzedaż na Allegro), jak i wydatków (np. zakupy, rachunki) w formie list. Użytkownicy mogą także edytować lub usuwać poszczególne wpisy. Waluta używana w aplikacji to PLN.</br>
 </br>
-<h2><b>Funkcje</b></h2>
+<h2>Funkcje</h2>
 <ul>
   <li><b>Dodawanie wydatków:</b> Rejestracja kosztów, aby śledzić swoje rozchody.</li>
   <li><b>Dodawanie przychodów:</b> Rejestrowanie różnych źródeł dochodu, aby monitorować swoje zarobki.</li>
@@ -20,7 +20,7 @@ Projekt został stworzony na potrzeby Bootcampu Frontend Developer organizowaneg
 	<li><b>JavaScript:</b> Do implementacji funkcjonalności i interaktywności.</li>
 </ul>
 </br>
--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 </br></br>
 Is a web application designed to help you manage your household budget. With this tool, you can easily input and track your expenses and income, ensuring better financial management.</br>
 </br>
@@ -28,18 +28,18 @@ This project was created for the Frontend Developer Bootcamp organized by <b>Fut
 </br>
 <h2>Features</h2>
 <ul>
-<li>Add Expenses: Record various expenses to keep track of your spending.</li>
-<li>Add Income: Log different sources of income to monitor your earnings.</li>
-<li>Edit Entries: Update the name and amount of any entry.</li>
-<li>Delete Entries: Remove any entry from the list.</li>
-<li>Budget Summary: View a summary of your current budget, including total expenses, total income, and balance.</li>
-<li>Responsive Design: Fully responsive and compatible with different screen sizes.</li>
+<li><b>Add Expenses:</b> Record various expenses to keep track of your spending.</li>
+<li><b>Add Income:</b> Log different sources of income to monitor your earnings.</li>
+<li><b>Edit Entries:</b> Update the name and amount of any entry.</li>
+<li><b>Delete Entries:</b> Remove any entry from the list.</li>
+<li><b>Budget Summary:</b> View a summary of your current budget, including total expenses, total income, and balance.</li>
+<li><b>Responsive Design:</b> Fully responsive and compatible with different screen sizes.</li>
 </ul>
 </br>
 <h2>Technologies Used</h2>
 <ul>
-<li>HTML: For structuring the web application.</li>
-<li>CSS: For styling the application and enhancing user experience.</li>
-<li>JavaScript: For implementing functionality and interactivity.</li>
+<li><b>HTML:</b> For structuring the web application.</li>
+<li><b>CSS:</b> For styling the application and enhancing user experience.</li>
+<li><b>JavaScript:</b> For implementing functionality and interactivity.</li>
 </ul>
 </br></br>
