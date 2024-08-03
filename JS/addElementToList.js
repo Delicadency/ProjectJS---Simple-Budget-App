@@ -10,10 +10,10 @@ export function addElementToList(type, text, amount) {
 
   const listParagraph = document.createElement("p");
   listParagraph.className = "flex a-i--center j-c--between list__paragraph";
-  listParagraph.textContent = `${amount.toLocaleString("pl-PL", {
+  listParagraph.textContent = `${text} - ${amount.toLocaleString("pl-PL", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  })} zł - ${text}`;
+  })} zł`;
 
   const listDiv = document.createElement("div");
   listDiv.className = "flex j-c--between a-i--center list__button_container";

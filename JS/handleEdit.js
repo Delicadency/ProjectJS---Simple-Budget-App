@@ -6,9 +6,9 @@ export function handleEdit(li, type, editButton, deleteButton) {
   const id = li.getAttribute("data-id");
   const listParagraph = li.querySelector(".list__paragraph");
 
-  const currentText = listParagraph.textContent.split(" zł - ")[1];
+  const currentText = listParagraph.textContent.split(" - ")[0];
   const textContent = listParagraph.textContent;
-  const amountText = textContent.split("zł - ")[0].trim();
+  const amountText = textContent.split(" - ")[1].trim();
   const currentAmount = parseFloat(
     amountText.replace(/\s/g, "").replace(",", ".")
   );
@@ -51,12 +51,12 @@ export function handleEdit(li, type, editButton, deleteButton) {
   amountWrapper.className = "input__wrapper--edit-amount";
 
   listParagraph.innerHTML = "";
-  listParagraph.appendChild(amountWrapper);
-  amountWrapper.appendChild(amountErrorLabel);
-  amountWrapper.appendChild(amountInput);
   listParagraph.appendChild(textWrapper);
   textWrapper.appendChild(textErrorLabel);
   textWrapper.appendChild(textInput);
+  listParagraph.appendChild(amountWrapper);
+  amountWrapper.appendChild(amountErrorLabel);
+  amountWrapper.appendChild(amountInput);
 
   const saveButton = document.createElement("button");
   saveButton.type = "submit";
@@ -97,9 +97,12 @@ export function handleEdit(li, type, editButton, deleteButton) {
     }
 
     if (isValid) {
-      listParagraph.textContent = `${newAmount.toLocaleString("pl-PL", {
-        minimumFractionDigits: 2,
-      })} zł - ${newText}`;
+      listParagraph.textContent = `${newText} - ${newAmount.toLocaleString(
+        "pl-PL",
+        {
+          minimumFractionDigits: 2,
+        }
+      )} zł`;
 
       if (type === "income") {
         const entry = incomes.find((income) => income.id == id);
@@ -123,9 +126,12 @@ export function handleEdit(li, type, editButton, deleteButton) {
   cancelButton.addEventListener("click", (event) => {
     event.preventDefault();
 
-    listParagraph.textContent = `${currentAmount.toLocaleString("pl-PL", {
-      minimumFractionDigits: 2,
-    })} zł - ${currentText}`;
+    listParagraph.textContent = `${currentText} - ${currentAmount.toLocaleString(
+      "pl-PL",
+      {
+        minimumFractionDigits: 2,
+      }
+    )} zł`;
     saveButton.replaceWith(editButton);
     cancelButton.replaceWith(deleteButton);
   });
