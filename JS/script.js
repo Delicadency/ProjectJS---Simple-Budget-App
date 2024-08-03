@@ -26,9 +26,7 @@ expenseForm.addEventListener("keydown", (event) => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const amountInputs = document.querySelectorAll('input[type="number"]');
-  amountInputs.forEach((input) => {
-    validateAmountInputs(input);
-  });
+const amountInputs = document.querySelectorAll('input[type="number"]');
+amountInputs.forEach((input) => {
+  validateAmountInputs(input);
 });
