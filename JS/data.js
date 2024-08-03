@@ -1,8 +1,6 @@
 export const incomes = [];
 export const expenses = [];
 
-window.incomes = incomes;
-window.expenses = expenses;
 
 export const state = {
   duringEdit: false,

@@ -16,8 +16,6 @@ export function handleEdit(li, type, editButton, deleteButton) {
   }
   state.duringEdit = true;
 
-  console.log(state);
-
   const id = li.getAttribute("data-id");
   const listParagraph = li.querySelector(".list__paragraph");
 
