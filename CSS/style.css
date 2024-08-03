@@ -7,7 +7,7 @@
   --expense-primary: #fb8500;
   --expense-secondary: #ffb703;
   --expense-secondary-transparent: #ffb70320;
-  --error: red;
+  --error: rgb(231, 0, 0);
   font-size: 1vh;
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -115,7 +115,7 @@ body {
   background-color: var(--light);
   border: none;
   border-radius: 0.3125vh;
-  font-family: "Sofia Sans", sans-serif !important;
+  font-family: "Sofia Sans", sans-serif;
   font-variant: small-caps;
 }
 .input::placeholder {
@@ -138,14 +138,14 @@ body {
   outline: 0.15625vh solid var(--expense-primary);
 }
 .input__wrapper--edit-text {
-  width: 65% !important;
+  width: 65%;
 }
-.input__wrapper--edit-amount{
-  width: 30% !important;
+.input__wrapper--edit-amount {
+  width: 30%;
 }
 .input--edit {
   width: 100%;
-  height: 3.6vh !important;
+  height: 3.6vh;
   outline: 0.1vh solid;
   outline-color: inherit;
 }
@@ -208,7 +208,7 @@ body {
   transform: translate(0, -1.2vh);
 }
 .error {
-  outline: 0.15625vh solid var(--error) !important;
+  outline: 0.15625vh solid var(--error)
 }
 .list__container {
   width: 90%;

@@ -65,17 +65,21 @@
     outline: 2px solid var(--expense-primary);
   }
   .input--text,
-  .input__wrapper--text,
-  .input__wrapper--edit-text {
+  .input__wrapper--text {
     width: 386px;
   }
+  .input__wrapper--edit-text{
+    width: 350px;
+  }
   .input--edit {
-    height: 55px !important;
+    height: 55px;
   }
   .input--amount,
-  .input__wrapper--amount,
-  .input__wrapper--edit-amount {
+  .input__wrapper--amount{
     width: 140px;
+  }
+  .input__wrapper--edit-amount {
+    width: 130px;
   }
   .input__button {
     width: 140px;
@@ -92,7 +96,7 @@
     transform: translate(0, -14px);
   }
   .error {
-    outline: 2px solid var(--error) !important;
+    outline: 2px solid var(--error);
   }
   .list__container {
     width: 700px;
