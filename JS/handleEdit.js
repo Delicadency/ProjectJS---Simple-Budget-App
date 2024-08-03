@@ -105,17 +105,20 @@ export function handleEdit(li, type, editButton, deleteButton) {
         }
       )} zł`;
 
+      const handleEntry = (entry) => {
+        entry.text = newText;
+        entry.amount = newAmount;
+      };
+
       if (type === "income") {
         const entry = incomes.find((income) => income.id == id);
         if (entry) {
-          entry.text = newText;
-          entry.amount = newAmount;
+          handleEntry(entry);
         }
       } else if (type === "expense") {
         const entry = expenses.find((expense) => expense.id == id);
         if (entry) {
-          entry.text = newText;
-          entry.amount = newAmount;
+          handleEntry(entry);
         }
       }
       saveButton.replaceWith(editButton);
