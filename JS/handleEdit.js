@@ -1,4 +1,9 @@
-import { incomes, expenses } from "./data.js";
+import {
+  incomes,
+  expenses,
+  hideErrorLabel,
+  displayErrorLabel,
+} from "./data.js";
 import { updateBalance } from "./updateBalance.js";
 import { validateAmountInputs } from "./validateAmountInputs.js";
 
@@ -80,20 +85,16 @@ export function handleEdit(li, type, editButton, deleteButton) {
     let isValid = true;
 
     if (!newText) {
-      textErrorLabel.style.display = "block";
-      textInput.classList.add("error");
+      displayErrorLabel(textErrorLabel, textInput);
       isValid = false;
     } else {
-      textErrorLabel.style.display = "none";
-      textInput.classList.remove("error");
+      hideErrorLabel(textErrorLabel, textInput);
     }
     if (isNaN(newAmount) || newAmount <= 0) {
-      amountErrorLabel.style.display = "block";
-      amountInput.classList.add("error");
+      displayErrorLabel(amountErrorLabel, amountInput);
       isValid = false;
     } else {
-      amountErrorLabel.style.display = "none";
-      amountInput.classList.remove("error");
+      hideErrorLabel(amountErrorLabel, amountInput);
     }
 
     if (isValid) {

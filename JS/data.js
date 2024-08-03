@@ -8,3 +8,13 @@ export function getTotalIncomes() {
 export function getTotalExpenses() {
   return expenses.reduce((total, expense) => total + expense.amount, 0);
 }
+
+export const displayErrorLabel = (errorLabel, typeOfInput) => {
+  errorLabel.style.display = "block";
+  typeOfInput.classList.add("error");
+};
+
+export const hideErrorLabel = (errorLabel, typeOfInput) => {
+  errorLabel.style.display = "none";
+  typeOfInput.classList.remove("error");
+};

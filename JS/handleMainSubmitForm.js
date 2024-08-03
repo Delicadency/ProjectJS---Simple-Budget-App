@@ -1,4 +1,9 @@
-import { incomes, expenses } from "./data.js";
+import {
+  incomes,
+  expenses,
+  hideErrorLabel,
+  displayErrorLabel,
+} from "./data.js";
 import { addElementToList } from "./addElementToList.js";
 import { updateBalance } from "./updateBalance.js";
 
@@ -17,21 +22,17 @@ function handleMainSubmitForm(event, type) {
   let isValid = true;
 
   if (!text) {
-    textErrorLabel.style.display = "block";
-    textInput.classList.add("error");
+    displayErrorLabel(textErrorLabel, textInput);
     isValid = false;
   } else {
-    textErrorLabel.style.display = "none";
-    textInput.classList.remove("error");
+    hideErrorLabel(textErrorLabel, textInput);
   }
 
   if (isNaN(amount) || amount <= 0) {
-    amountErrorLabel.style.display = "block";
-    amountInput.classList.add("error");
+    displayErrorLabel(amountErrorLabel, amountInput);
     isValid = false;
   } else {
-    amountErrorLabel.style.display = "none";
-    amountInput.classList.remove("error");
+    hideErrorLabel(amountErrorLabel, amountInput);
   }
 
   if (isValid) {
