@@ -3,13 +3,20 @@ import {
   expenses,
   hideErrorLabel,
   displayErrorLabel,
+  state,
 } from "./data.js";
 import { addElementToList } from "./addElementToList.js";
 import { updateBalance } from "./updateBalance.js";
+import { displayErrorMessage } from "./displayErrorMessage.js";
 
 function handleMainSubmitForm(event, type) {
   event.preventDefault();
 
+  if (state.duringEdit === true) {
+    displayErrorMessage();
+    return;
+  }
+  console.log(state);
   const textInput = event.target.querySelector('input[type="text"]');
   const amountInput = event.target.querySelector('input[type="number"]');
 

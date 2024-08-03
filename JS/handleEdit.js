@@ -3,11 +3,21 @@ import {
   expenses,
   hideErrorLabel,
   displayErrorLabel,
+  state,
 } from "./data.js";
 import { updateBalance } from "./updateBalance.js";
 import { validateAmountInputs } from "./validateAmountInputs.js";
+import { displayErrorMessage } from "./displayErrorMessage.js";
 
 export function handleEdit(li, type, editButton, deleteButton) {
+  if (state.duringEdit) {
+    displayErrorMessage();
+    return;
+  }
+  state.duringEdit = true;
+
+  console.log(state);
+
   const id = li.getAttribute("data-id");
   const listParagraph = li.querySelector(".list__paragraph");
 
@@ -124,6 +134,7 @@ export function handleEdit(li, type, editButton, deleteButton) {
       saveButton.replaceWith(editButton);
       cancelButton.replaceWith(deleteButton);
       updateBalance();
+      state.duringEdit = false;
     }
   });
 
@@ -138,6 +149,7 @@ export function handleEdit(li, type, editButton, deleteButton) {
     )} zł`;
     saveButton.replaceWith(editButton);
     cancelButton.replaceWith(deleteButton);
+    state.duringEdit = false;
   });
 
   li.addEventListener("keydown", (event) => {

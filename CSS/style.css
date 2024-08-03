@@ -7,7 +7,7 @@
   --expense-primary: #fb8500;
   --expense-secondary: #ffb703;
   --expense-secondary-transparent: #ffb70320;
-  --error: rgb(231, 0, 0);
+  --error: #e70000;
   font-size: 1vh;
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -49,7 +49,7 @@ body {
 }
 .header__paragraph {
   width: 60%;
-  height: 10vh;
+  height: 8vh;
   display: block;
   font-size: 3.75rem;
   padding: 1vh;
@@ -58,6 +58,17 @@ body {
 }
 .header__paragraph:first-of-type {
   margin: 1.1vh 0 0;
+}
+.header__error{
+  color: var(--error);
+  font-size: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.header__error.show{
+  opacity: 1;
+  visibility: visible;
 }
 .paragraph-gradient--income {
   background-image: linear-gradient(

@@ -11,7 +11,10 @@
     line-height: 40px;
   }
   .header__paragraph:first-of-type {
-    margin: 10px 0 0;
+    margin: 10px 0 20px;
+  }
+  .header__error {
+    font-size: 36px;
   }
   .container__paragraph {
     width: 702px;

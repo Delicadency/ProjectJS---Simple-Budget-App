@@ -1,6 +1,13 @@
 export const incomes = [];
 export const expenses = [];
 
+window.incomes = incomes;
+window.expenses = expenses;
+
+export const state = {
+  duringEdit: false,
+};
+
 export function getTotalIncomes() {
   return incomes.reduce((total, income) => total + income.amount, 0);
 }

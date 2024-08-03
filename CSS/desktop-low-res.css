@@ -21,6 +21,9 @@
   .header__paragraph:first-of-type {
     margin: 10px 0 20px;
   }
+  .header__error{
+    font-size: 24px;
+  }
   .container__paragraph {
     width: 702px;
     height: 50px;
