@@ -4,13 +4,10 @@
   }
   .header__heading {
     font-size: 64px;
-    padding: 5px;
     margin: 84px 0 15px;
   }
   .header__paragraph {
     font-size: 40px;
-    padding: 5px;
-    margin: 10px 0 40px;
     line-height: 40px;
   }
   .header__paragraph:first-of-type {
@@ -19,7 +16,6 @@
   .container__paragraph {
     width: 702px;
     height: 50px;
-    align-self: flex-end;
   }
   .f-s-20 {
     font-size: 40px;
@@ -27,90 +23,50 @@
   .f-s-14 {
     font-size: 26px;
   }
-  .m--top {
-    margin-top: 0;
-  }
   .container {
     width: 775px;
     height: 690px;
-    border-radius: 5px;
-  }
-  .f--row {
-    flex-direction: row;
   }
   .main {
     width: 1580px;
     height: 790px;
-    align-self: center;
-  }
-  .income__container {
-    border: 2px solid var(--income-primary);
-  }
-  .expense__container {
-    border: 2px solid var(--expense-primary);
   }
   .input__container {
     width: 700px;
     height: 60px;
-    margin: 27px 0;
   }
   .input {
     height: 60px;
-    border-radius: 2px;
-  }
-  .input--income:focus {
-    outline: 2px solid var(--income-primary);
-  }
-  .input--expense:focus {
-    outline: 2px solid var(--expense-primary);
   }
   .input--text,
   .input__wrapper--text {
     width: 386px;
   }
-  .input__wrapper--edit-text{
+  .input__wrapper--edit-text {
     width: 350px;
   }
-  .input--edit {
-    height: 55px;
-  }
   .input--amount,
-  .input__wrapper--amount{
+  .input__wrapper--amount {
     width: 140px;
-  }
-  .input__wrapper--edit-amount {
-    width: 130px;
   }
   .input__button {
     width: 140px;
     height: 60px;
-    border-radius: 2px;
     font-size: 24px;
   }
   .input::placeholder {
     font-size: 24px;
-  }
-  .error_label {
-    width: 150px;
-    font-size: 14px;
-    transform: translate(0, -14px);
   }
   .error {
     outline: 2px solid var(--error);
   }
   .list__container {
     width: 700px;
-    height: 465px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .list__container::-webkit-scrollbar {
-    display: none;
+    height: 500px;
   }
   .list__element {
     width: 703px;
     height: 60px;
-    border-radius: 2px;
     margin: 16px 0 0;
   }
   .list__paragraph {
@@ -122,6 +78,5 @@
   }
   .list__button {
     width: 43px;
-    margin: 0 10px;
   }
 }
