@@ -8,46 +8,47 @@ export function updateBalance() {
   const headerParagraph = document.getElementById("header-paragraph");
   const newHeaderParagraph = document.createElement("p");
   const span = document.createElement("span");
+  const afterSpan = document.createTextNode(" zł");
+  const beforeSpanInTheBlack = document.createTextNode("Możesz jeszcze wydać ");
+  const beforeSpanInTheRed = document.createTextNode("Jesteś na minusie ");
 
-  newHeaderParagraph.className = "header__paragraph txt-a--center";
-  newHeaderParagraph.id = "header-paragraph";
+  const setPropertiesAndReplace = () => {
+    newHeaderParagraph.className = "header__paragraph txt-a--center";
+    newHeaderParagraph.id = "header-paragraph";
+    headerParagraph.replaceWith(newHeaderParagraph);
+  };
+  const appendParagraph = (beforeSpan) => {
+    newHeaderParagraph.appendChild(beforeSpan);
+    newHeaderParagraph.appendChild(span);
+    newHeaderParagraph.appendChild(afterSpan);
+  };
 
-  span.textContent = balance.toLocaleString("pl-PL", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  const numberToLocaleString = (element) => {
+    return element.toLocaleString("pl-PL", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+
+  span.textContent = numberToLocaleString(balance);
   span.id = "span";
 
   if (balance > 0) {
     span.className = "paragraph-gradient--income";
-    const beforeSpan = document.createTextNode("Możesz jeszcze wydać ");
-    const afterSpan = document.createTextNode(" zł");
-    headerParagraph.replaceWith(newHeaderParagraph);
-    newHeaderParagraph.appendChild(beforeSpan);
-    newHeaderParagraph.appendChild(span);
-    newHeaderParagraph.appendChild(afterSpan);
+    setPropertiesAndReplace();
+    appendParagraph(beforeSpanInTheBlack);
   } else if (balance < 0) {
     span.className = "paragraph-gradient--expense";
-    const beforeSpan = document.createTextNode("Jesteś na minusie ");
-    const afterSpan = document.createTextNode(" zł");
-    headerParagraph.replaceWith(newHeaderParagraph);
-    newHeaderParagraph.appendChild(beforeSpan);
-    newHeaderParagraph.appendChild(span);
-    newHeaderParagraph.appendChild(afterSpan);
+    setPropertiesAndReplace();
+    appendParagraph(beforeSpanInTheRed);
   } else {
     newHeaderParagraph.textContent = "Bilans wynosi zero";
-    headerParagraph.replaceWith(newHeaderParagraph);
+    setPropertiesAndReplace();
   }
 
   const incomesSum = document.querySelector("#total-income");
-  incomesSum.textContent = totalIncomes.toLocaleString("pl-PL", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  incomesSum.textContent = numberToLocaleString(totalIncomes);
 
   const expensesSum = document.querySelector("#total-expense");
-  expensesSum.textContent = totalExpenses.toLocaleString("pl-PL", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  expensesSum.textContent = numberToLocaleString(totalExpenses);
 }
